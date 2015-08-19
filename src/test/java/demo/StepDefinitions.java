@@ -19,7 +19,7 @@ import java.net.URISyntaxException;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-@ContextConfiguration(classes = DemoApplication.class, loader = SpringApplicationContextLoader.class)
+@ContextConfiguration(classes = Application.class, loader = SpringApplicationContextLoader.class)
 @WebIntegrationTest({"server.port=0", "management.port=0"})
 public class StepDefinitions  extends FluentTest {
     private WebDriver driver;
