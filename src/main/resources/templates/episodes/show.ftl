@@ -38,16 +38,18 @@
 
 <div class="container">
     <div class="starter-template">
-        <h1>Annotated Spring</h1>
+        <h1>${episode.title}</h1>
 
-        <p class="lead">Spring Screencasts</p>
-
-        <ul>
-            <li><a href="/episodes" id="episodes">Episodes</a></li>
-            <li><a href="/episodes/new" id="create-episode">Create Episode</a></li>
-        </ul>
+        <#if episode.youtubeId?? >
+            <iframe width="854" height="480" src="https://www.youtube.com/embed/${episode.youtubeId}" frameborder="0" allowfullscreen></iframe>
+        </#if>
     </div>
 </div>
 
 </body>
 </html>
+
+
+
+
+

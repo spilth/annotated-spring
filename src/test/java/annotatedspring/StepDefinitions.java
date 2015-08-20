@@ -2,6 +2,8 @@ package annotatedspring;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fluentlenium.adapter.FluentTest;
@@ -17,6 +19,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 @ContextConfiguration(classes = Application.class, loader = SpringApplicationContextLoader.class)
@@ -72,5 +76,32 @@ public class StepDefinitions  extends FluentTest {
 
     protected void teardownFluentlenium() {
         this.quit();
+    }
+
+    @Given("^there are no episodes$")
+    public void there_are_no_episodes() throws Throwable {
+        // Nothing
+    }
+
+    @When("^I create an episode$")
+    public void I_create_an_episode() throws Throwable {
+        goTo(baseUrl);
+        click("#create-episode");
+        fill("#title").with("Episode Title");
+        fill("#notes").with("Episode Notes");
+        fill("#youtubeId").with("YouTube ID");
+        fill("#duration").with("42");
+        submit("#create");
+    }
+
+    @Then("^I should see it on the episodes page$")
+    public void I_should_see_it_on_the_episodes_page() throws Throwable {
+        assertThat(findFirst("td").getText(), is(equalTo("Episode Title")));
+    }
+
+    @And("^I should be able to view its details$")
+    public void I_should_be_able_to_view_its_details() throws Throwable {
+        click("#episode1");
+        assertThat(findFirst("h1").getText(), is(equalTo("Episode Title")));
     }
 }

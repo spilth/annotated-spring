@@ -38,16 +38,17 @@
 
 <div class="container">
     <div class="starter-template">
-        <h1>Annotated Spring</h1>
+        <h1>Episodes</h1>
 
-        <p class="lead">Spring Screencasts</p>
-
-        <ul>
-            <li><a href="/episodes" id="episodes">Episodes</a></li>
-            <li><a href="/episodes/new" id="create-episode">Create Episode</a></li>
-        </ul>
+        <table>
+        <#list episodes as episode>
+            <tr><td><a id="episode${episode.id}" href="/episodes/${episode.id}">${episode.title}</a></td></tr>
+        </#list>
+        </table>
     </div>
 </div>
 
 </body>
 </html>
+
+
