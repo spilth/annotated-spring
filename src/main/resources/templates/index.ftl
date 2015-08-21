@@ -1,53 +1,10 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<@application>
+    <h1>Annotated Spring</h1>
 
-    <meta name="description" content="Spring Screencasts">
-    <meta name="author" content="Brian Kelly">
+    <p class="lead">Spring Screencasts</p>
 
-    <title>Annotated Spring</title>
-
-    <link rel='stylesheet' href='/webjars/bootstrap/3.3.5/css/bootstrap.min.css'>
-    <link rel='stylesheet' href='/stylesheets/annotated-spring.css'>
-</head>
-
-<body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Annotated Spring</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="/">Home</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<div class="container">
-    <div class="starter-template">
-        <h1>Annotated Spring</h1>
-
-        <p class="lead">Spring Screencasts</p>
-
-        <ul>
-            <li><a href="/episodes" id="episodes">Episodes</a></li>
-            <li><a href="/episodes/new" id="create-episode">Create Episode</a></li>
-        </ul>
-    </div>
-</div>
-
-</body>
-</html>
+    <ul>
+        <li><a href="/episodes" id="episodes">Episodes</a></li>
+        <li><a href="/episodes/new" id="create-episode">Create Episode</a></li>
+    </ul>
+</@application>
