@@ -126,7 +126,7 @@
         <profile>
             <id>test</id>
             <build>
-                <defaultGoal>clean test</defaultGoal>
+                <defaultGoal>integration-test</defaultGoal>
                 <plugins>
                     <plugin>
                         <groupId>org.springframework.boot</groupId>
