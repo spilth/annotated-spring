@@ -11,6 +11,7 @@ dependencies:
 test:
   override:
     - mvn -P test
+    - mvn package
 
   post:
     - cf api https://api.run.pivotal.io
