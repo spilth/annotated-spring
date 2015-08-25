@@ -1,6 +1,5 @@
 package annotatedspring;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
@@ -21,8 +20,6 @@ import java.net.URISyntaxException;
 
 import static org.fluentlenium.core.filter.FilterConstructor.withText;
 import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 @ContextConfiguration(classes = Application.class, loader = SpringApplicationContextLoader.class)
@@ -55,16 +52,6 @@ public class StepDefinitions  extends FluentTest {
         return driver;
     }
 
-    @When("^I visit the homepage$")
-    public void I_visit_the_homepage() throws Throwable {
-        goTo(baseUrl);
-    }
-
-    @Then("^I should see the site title$")
-    public void I_should_see_the_site_title() throws Throwable {
-        assertThat(findFirst("h1").getText(), containsString("Annotated Spring"));
-    }
-
     protected void setupFluentlenium() {
         try {
             baseUrl = new URI("http://localhost:" + port + "/").normalize().toString();
@@ -90,21 +77,23 @@ public class StepDefinitions  extends FluentTest {
         goTo(baseUrl);
         click("#create-episode");
         fill("#title").with("Episode Title");
+        fill("#summary").with("Episode Summary");
         fill("#notes").with("Episode Notes");
         fill("#youtubeId").with("YouTube ID");
         fill("#duration").with("42");
+        fill("#sourcecodeUrl").with("https://github.com/AnnotatedSpring/episode-001");
         submit("#create");
     }
 
     @Then("^I should see it on the episodes page$")
     public void I_should_see_it_on_the_episodes_page() throws Throwable {
-        assertThat(findFirst("td").getText(), is(equalTo("Episode Title")));
+        assertThat(findFirst("tbody tr").getText(), containsString("Episode Title"));
     }
 
     @And("^I should be able to view its details$")
     public void I_should_be_able_to_view_its_details() throws Throwable {
         click("#episode1");
-        assertThat(findFirst("h1").getText(), is(equalTo("Episode Title")));
+        assertThat(findFirst("h1").getText(), containsString("Episode Title"));
     }
 
     @Given("^there is an existing episode$")
@@ -117,23 +106,27 @@ public class StepDefinitions  extends FluentTest {
         findFirst("a", withText("Episode Title")).click();
         findFirst("a", withText("Edit")).click();
 
-        assertThat(find("#title").getValue(), is(equalTo("Episode Title")));
+        assertThat(find("#title").getValue(), containsString("Episode Title"));
 
         fill("#title").with("Edited Episode Title");
+        fill("#summary").with("Edited Episode Summary");
         fill("#notes").with("Edited Episode Notes");
         fill("#youtubeId").with("Edited YouTube ID");
         fill("#duration").with("43");
+        fill("#sourcecodeUrl").with("https://github.com/AnnotatedSpring/episode-001b");
+
         submit("#update");
     }
 
     @Then("^I should see my changes reflect on the episode page$")
     public void I_should_see_my_changes_reflect_on_the_episode_page() throws Throwable {
-        assertThat(findFirst("td").getText(), is(equalTo("Edited Episode Title")));
+        assertThat(findFirst("tbody tr").getText(), containsString("Edited Episode Title"));
+
     }
 
     @And("^I should see my changes reflected when I view its details$")
     public void I_should_see_my_changes_reflected_when_I_view_its_details() throws Throwable {
         click("#episode1");
-        assertThat(findFirst("h1").getText(), is(equalTo("Edited Episode Title")));
+        assertThat(findFirst("h1").getText(), containsString("Edited Episode Title"));
     }
 }

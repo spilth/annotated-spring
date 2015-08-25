@@ -1,9 +1,25 @@
 <@application>
     <h1>Episodes</h1>
 
-    <table>
-    <#list episodes as episode>
-        <tr><td><a id="episode${episode.id}" href="/episodes/${episode.id}">${episode.title}</a></td></tr>
-    </#list>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Duration</th>
+            </tr>
+        </thead>
+        <tbody>
+        <#list episodes as episode>
+            <tr>
+                <td>${episode.id}</td></td>
+                <td><a id="episode${episode.id}" href="/episodes/${episode.id}">${episode.title}</a></td>
+                <td>${episode.duration} minutes</td>
+            </tr>
+        </#list>
+        </tbody>
+
     </table>
+
+    <p><a href="/episodes/new" id="create-episode" class="btn btn-default">Create Episode</a></p>
 </@application>

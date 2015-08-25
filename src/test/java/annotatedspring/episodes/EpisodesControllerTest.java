@@ -50,7 +50,7 @@ public class EpisodesControllerTest {
 
         when(episodesService.all()).thenReturn(episodes);
 
-        mockMvc.perform(get("/episodes"))
+        mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("episodes/index"))
                 .andExpect(model().attribute("episodes", episodes));
@@ -67,13 +67,13 @@ public class EpisodesControllerTest {
     @Test
     public void createEpisode_redirectsToEpisodeIndex() throws Exception {
         mockMvc.perform(post("/episodes"))
-                .andExpect(redirectedUrl("/episodes"));
+                .andExpect(redirectedUrl("/"));
     }
 
     @Test
     public void createEpisode_validEpisode_createsEpisode() throws Exception {
         mockMvc.perform(post("/episodes").param("title", "episode title"))
-            .andExpect(redirectedUrl("/episodes"));
+            .andExpect(redirectedUrl("/"));
 
         verify(episodesService, times(1)).create(any(Episode.class));
     }
@@ -105,7 +105,7 @@ public class EpisodesControllerTest {
     @Test
     public void updateEpisode_validEpisode_updatesEpisode() throws Exception {
         mockMvc.perform(post("/episodes/1").param("title", "episode title"))
-                .andExpect(redirectedUrl("/episodes"));
+                .andExpect(redirectedUrl("/"));
 
         verify(episodesService, times(1)).update(any(Episode.class));
     }

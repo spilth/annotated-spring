@@ -14,7 +14,7 @@ public class EpisodesController {
     @Autowired
     private EpisodesService episodesService;
 
-    @RequestMapping(value = "/episodes", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String episodeIndex(Model model) {
         model.addAttribute("episodes", episodesService.all());
 
@@ -32,7 +32,7 @@ public class EpisodesController {
     public String episodeCreate(@Valid Episode episode) {
         episodesService.create(episode);
 
-        return "redirect:/episodes";
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/episodes/{episodeId}", method = RequestMethod.GET)
@@ -55,7 +55,7 @@ public class EpisodesController {
 
         episodesService.update(episode);
 
-        return "redirect:/episodes";
+        return "redirect:/";
     }
 
 }

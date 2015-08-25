@@ -12,11 +12,15 @@ public class Episode {
 
     private String title;
 
+    private String summary;
+
     private String notes;
 
     private String youtubeId;
 
     private Integer duration;
+
+    private String sourcecodeUrl;
 
     public Integer getId() {
         return id;
@@ -56,5 +60,21 @@ public class Episode {
 
     public void setDuration(Integer duration) {
         this.duration = duration;
+    }
+
+    public String getSourcecodeUrl() {
+        return sourcecodeUrl;
+    }
+
+    public void setSourcecodeUrl(String sourcecodeUrl) {
+        this.sourcecodeUrl = sourcecodeUrl;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 }
