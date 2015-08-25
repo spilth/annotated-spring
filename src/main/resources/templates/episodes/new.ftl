@@ -1,16 +1,13 @@
 <@application>
-    <form action="/episodes" method="post">
-        <dl>
-            <dt>Title</dt>
-            <dd><input id="title" name="title" type="text" /></dd>
-            <dt>Notes</dt>
-            <dd><textarea id="notes" name="notes"></textarea></dd>
-            <dt>YouTube URL</dt>
-            <dd><input id="youtubeId" name="youtubeId" type="text" /></dd>
-            <dt>Duration</dt>
-            <dd><input id="duration" name="duration" type="text" /></dd>
-        </dl>
+    <h1>New Episode</h1>
 
-        <input type="submit" id="create" />
+    <form action="/episodes" method="post" class="form-horizontal">
+        <#include "_form.ftl">
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" id="create" value="Create" class="btn btn-default" />
+            </div>
+        </div>
     </form>
 </@application>

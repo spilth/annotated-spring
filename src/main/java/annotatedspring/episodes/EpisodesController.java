@@ -22,7 +22,9 @@ public class EpisodesController {
     }
 
     @RequestMapping(value = "/episodes/new", method = RequestMethod.GET)
-    public String episodesNew() {
+    public String episodesNew(Model model) {
+        model.addAttribute("episode", new Episode());
+
         return "episodes/new";
     }
 
@@ -39,4 +41,21 @@ public class EpisodesController {
 
         return "episodes/show";
     }
+
+    @RequestMapping(value = "/episodes/{episodeId}/edit", method = RequestMethod.GET)
+    public String episodeEdit(@PathVariable("episodeId") Integer episodeId, Model model) {
+        model.addAttribute("episode", episodesService.find(episodeId));
+
+        return "episodes/edit";
+    }
+
+    @RequestMapping(value = "/episodes/{episodeId}", method = RequestMethod.POST)
+    public String episodeUpdate(@Valid Episode episode, @PathVariable("episodeId") Integer episodeId) {
+        episode.setId(episodeId);
+
+        episodesService.update(episode);
+
+        return "redirect:/episodes";
+    }
+
 }

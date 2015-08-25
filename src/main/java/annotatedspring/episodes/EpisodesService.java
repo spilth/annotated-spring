@@ -19,4 +19,8 @@ public class EpisodesService {
     public Episode find(int episodeId) {
         return episodesRepository.findOne(episodeId);
     }
+
+    public Episode update(Episode updatedEpisode) {
+        return episodesRepository.save(updatedEpisode);
+    }
 }

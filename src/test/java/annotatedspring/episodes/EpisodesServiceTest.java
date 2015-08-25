@@ -66,4 +66,15 @@ public class EpisodesServiceTest {
 
         verify(episodesRepository, times(1)).findOne(1);
     }
+
+    @Test
+    public void update_updatesAnEpisode() throws Exception {
+        Episode episode = new Episode();
+
+        when(episodesRepository.save(episode)).thenReturn(episode);
+
+        episodeService.update(episode);
+
+        verify(episodesRepository, times(1)).save(episode);
+    }
 }

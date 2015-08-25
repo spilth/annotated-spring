@@ -1,5 +1,6 @@
 package annotatedspring;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
@@ -18,6 +19,7 @@ import org.springframework.test.context.ContextConfiguration;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import static org.fluentlenium.core.filter.FilterConstructor.withText;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
@@ -103,5 +105,35 @@ public class StepDefinitions  extends FluentTest {
     public void I_should_be_able_to_view_its_details() throws Throwable {
         click("#episode1");
         assertThat(findFirst("h1").getText(), is(equalTo("Episode Title")));
+    }
+
+    @Given("^there is an existing episode$")
+    public void there_is_an_existing_episode() throws Throwable {
+        I_create_an_episode();
+    }
+
+    @When("^I edit that episode$")
+    public void I_edit_that_episode() throws Throwable {
+        findFirst("a", withText("Episode Title")).click();
+        findFirst("a", withText("Edit")).click();
+
+        assertThat(find("#title").getValue(), is(equalTo("Episode Title")));
+
+        fill("#title").with("Edited Episode Title");
+        fill("#notes").with("Edited Episode Notes");
+        fill("#youtubeId").with("Edited YouTube ID");
+        fill("#duration").with("43");
+        submit("#update");
+    }
+
+    @Then("^I should see my changes reflect on the episode page$")
+    public void I_should_see_my_changes_reflect_on_the_episode_page() throws Throwable {
+        assertThat(findFirst("td").getText(), is(equalTo("Edited Episode Title")));
+    }
+
+    @And("^I should see my changes reflected when I view its details$")
+    public void I_should_see_my_changes_reflected_when_I_view_its_details() throws Throwable {
+        click("#episode1");
+        assertThat(findFirst("h1").getText(), is(equalTo("Edited Episode Title")));
     }
 }

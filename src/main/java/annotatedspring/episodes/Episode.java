@@ -16,6 +16,8 @@ public class Episode {
 
     private String youtubeId;
 
+    private Integer duration;
+
     public Integer getId() {
         return id;
     }
@@ -48,4 +50,11 @@ public class Episode {
         this.youtubeId = youtubeId;
     }
 
+    public Integer getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Integer duration) {
+        this.duration = duration;
+    }
 }

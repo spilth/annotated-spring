@@ -1,0 +1,24 @@
+<div class="form-group">
+    <label for="title" class="col-sm-2 control-label">Title</label>
+    <div class="col-sm-10">
+        <@spring.formInput "episode.title", "class='form-control'" />
+    </div>
+</div>
+<div class="form-group">
+    <label for="notes" class="col-sm-2 control-label">Notes</label>
+    <div class="col-sm-10">
+        <@spring.formTextarea "episode.notes",  "class='form-control'" />
+    </div>
+</div>
+<div class="form-group">
+    <label for="youtubeId" class="col-sm-2 control-label">YouTube ID</label>
+    <div class="col-sm-10">
+        <@spring.formInput "episode.youtubeId",  "class='form-control'" />
+    </div>
+</div>
+<div class="form-group">
+    <label for="duration" class="col-sm-2 control-label">Duration</label>
+    <div class="col-sm-10">
+        <@spring.formInput "episode.duration",  "class='form-control'" />
+    </div>
+</div>
