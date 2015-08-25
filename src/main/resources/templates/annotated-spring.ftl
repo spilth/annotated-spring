@@ -40,7 +40,10 @@
 
 <footer class="footer">
     <div class="container">
-        <p class="text-muted"><a href="https://github.com/AnnotatedSpring/annotated-spring">Web Site Source Code</a></p>
+        <p class="text-muted pull-right">
+            <a href="https://github.com/AnnotatedSpring/annotated-spring">Web Site Source Code</a>&nbsp;&nbsp;
+            <a href="https://circleci.com/gh/AnnotatedSpring/annotated-spring"><img src="https://circleci.com/gh/AnnotatedSpring/annotated-spring.svg?style=svg"></a>
+        </p>
     </div>
 </footer>
 
