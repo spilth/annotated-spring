@@ -1,8 +1,11 @@
 package annotatedspring.episodes;
 
+import org.pegdown.PegDownProcessor;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity
 public class Episode {
@@ -14,6 +17,7 @@ public class Episode {
 
     private String summary;
 
+    @Lob
     private String notes;
 
     private String youtubeId;
@@ -34,6 +38,10 @@ public class Episode {
 
     public String getNotes() {
         return notes;
+    }
+
+    public String getNotesHtml() {
+        return new PegDownProcessor().markdownToHtml(notes);
     }
 
     public void setId(Integer id) {
