@@ -5,7 +5,8 @@ INSERT INTO episode (
   notes,
   duration,
   youtube_id,
-  sourcecode_url
+  sourcecode_url,
+  published
 ) VALUES (
   1,
   'Spring Boot QuickStart',
@@ -13,5 +14,6 @@ INSERT INTO episode (
   'Episode Notes',
   3,
   '7cOVaxlxA5k',
-  'https://github.com/AnnotatedSpring/annotated-spring'
+  'https://github.com/AnnotatedSpring/annotated-spring',
+  1
 );

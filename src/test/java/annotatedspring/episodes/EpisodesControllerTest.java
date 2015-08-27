@@ -46,14 +46,14 @@ public class EpisodesControllerTest {
 
     @Test
     public void episodeIndex_rendersIndex() throws Exception {
-        List<Episode> episodes = new ArrayList<>();
+        List<Episode> publishedEpisodes = new ArrayList<>();
 
-        when(episodesService.all()).thenReturn(episodes);
+        when(episodesService.published()).thenReturn(publishedEpisodes);
 
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("episodes/index"))
-                .andExpect(model().attribute("episodes", episodes));
+                .andExpect(model().attribute("episodes", publishedEpisodes));
     }
 
     @Test

@@ -16,7 +16,7 @@ public class EpisodesController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String episodeIndex(Model model) {
-        model.addAttribute("episodes", episodesService.all());
+        model.addAttribute("episodes", episodesService.published());
 
         return "episodes/index";
     }

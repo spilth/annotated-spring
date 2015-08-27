@@ -1,9 +1,14 @@
 Feature: Episodes
-  Scenario: Create an Episode
+  Scenario: Create a published Episode
     Given there are no episodes
-    When I create an episode
+    When I create a published episode
     Then I should see it on the episodes page
     And I should be able to view its details
+
+  Scenario: Create an unpublished Episode
+    Given there are no episodes
+    When I create an unpublished episode
+    Then I should not see it on the episodes page
 
   Scenario: Edit an Episode
     Given there is an existing episode

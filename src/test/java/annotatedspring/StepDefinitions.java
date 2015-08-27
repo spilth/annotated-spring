@@ -20,6 +20,7 @@ import java.net.URISyntaxException;
 
 import static org.fluentlenium.core.filter.FilterConstructor.withText;
 import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 @ContextConfiguration(classes = Application.class, loader = SpringApplicationContextLoader.class)
@@ -72,16 +73,19 @@ public class StepDefinitions  extends FluentTest {
         // Nothing
     }
 
-    @When("^I create an episode$")
-    public void I_create_an_episode() throws Throwable {
+    @When("^I create a published episode$")
+    public void I_create_a_published_episode() throws Throwable {
         goTo(baseUrl);
         click("#create-episode");
+
         fill("#title").with("Episode Title");
         fill("#summary").with("Episode Summary");
         fill("#notes").with("Episode Notes");
         fill("#youtubeId").with("YouTube ID");
         fill("#duration").with("42");
+        find("#published").click();
         fill("#sourcecodeUrl").with("https://github.com/AnnotatedSpring/episode-001");
+
         submit("#create");
     }
 
@@ -98,7 +102,7 @@ public class StepDefinitions  extends FluentTest {
 
     @Given("^there is an existing episode$")
     public void there_is_an_existing_episode() throws Throwable {
-        I_create_an_episode();
+        I_create_a_published_episode();
     }
 
     @When("^I edit that episode$")
@@ -121,12 +125,31 @@ public class StepDefinitions  extends FluentTest {
     @Then("^I should see my changes reflect on the episode page$")
     public void I_should_see_my_changes_reflect_on_the_episode_page() throws Throwable {
         assertThat(findFirst("tbody tr").getText(), containsString("Edited Episode Title"));
-
     }
 
     @And("^I should see my changes reflected when I view its details$")
     public void I_should_see_my_changes_reflected_when_I_view_its_details() throws Throwable {
         click("#episode1");
         assertThat(findFirst("h1").getText(), containsString("Edited Episode Title"));
+    }
+
+    @When("^I create an unpublished episode$")
+    public void I_create_an_unpublished_episode() throws Throwable {
+        goTo(baseUrl);
+        click("#create-episode");
+
+        fill("#title").with("Unpublished Episode Title");
+        fill("#summary").with("Unpublished Episode Summary");
+        fill("#notes").with("Unpublished Episode Notes");
+        fill("#youtubeId").with("YouTube ID");
+        fill("#duration").with("42");
+        fill("#sourcecodeUrl").with("https://github.com/AnnotatedSpring/episode-001");
+
+        submit("#create");
+    }
+
+    @Then("^I should not see it on the episodes page$")
+    public void I_should_not_see_it_on_the_episodes_page() throws Throwable {
+        assertThat(findFirst("tbody").getText(), not(containsString("Unpublished Episode Title")));
     }
 }

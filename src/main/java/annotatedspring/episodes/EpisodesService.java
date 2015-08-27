@@ -23,4 +23,8 @@ public class EpisodesService {
     public Episode update(Episode updatedEpisode) {
         return episodesRepository.save(updatedEpisode);
     }
+
+    public Iterable<Episode> published() {
+        return episodesRepository.findByPublished(true);
+    }
 }

@@ -22,6 +22,8 @@ public class Episode {
 
     private String sourcecodeUrl;
 
+    private boolean published;
+
     public Integer getId() {
         return id;
     }
@@ -77,4 +79,13 @@ public class Episode {
     public void setSummary(String summary) {
         this.summary = summary;
     }
+
+    public boolean isPublished() {
+        return published;
+    }
+
+    public void setPublished(boolean published) {
+        this.published = published;
+    }
+
 }
