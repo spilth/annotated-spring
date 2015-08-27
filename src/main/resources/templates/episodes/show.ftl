@@ -14,4 +14,7 @@
     <p>${episode.notes}</p>
 
     <p><a href="/episodes/${episode.id}/edit" class="btn btn-default">Edit</a></p>
+
+    <#include "_discus.ftl" >
+
 </@application>
