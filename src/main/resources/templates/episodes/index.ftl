@@ -6,6 +6,7 @@
             <tr>
                 <th>#</th>
                 <th>Title</th>
+                <th>Summary</th>
                 <th>Duration</th>
             </tr>
         </thead>
@@ -14,6 +15,7 @@
             <tr>
                 <td>${episode.id}</td></td>
                 <td><a id="episode${episode.id}" href="/episodes/${episode.id}">${episode.title}</a></td>
+                <td>${episode.summary}</td>
                 <td>${episode.duration} minutes</td>
             </tr>
         </#list>
