@@ -40,10 +40,17 @@
 
 <footer class="footer">
     <div class="container">
-        <p class="text-muted pull-right">
-            <a href="https://github.com/AnnotatedSpring/annotated-spring">Web Site Source Code</a>&nbsp;&nbsp;
-            <a href="https://circleci.com/gh/AnnotatedSpring/annotated-spring"><img src="https://circleci.com/gh/AnnotatedSpring/annotated-spring.svg?style=svg"></a>
-        </p>
+        <div class="row text-muted">
+            <div class="col-md-4 text-left">
+                <a href="https://github.com/AnnotatedSpring/annotated-spring">Website Source Code</a>&nbsp;&nbsp;
+            </div>
+            <div class="col-md-4 text-center">
+                &copy; 2015 Annotated Spring
+            </div>
+            <div class="col-md-4 text-right">
+                Hosted by <a href="https://run.pivotal.io">Pivotal Web Services</a>
+            </div>
+        </div>
     </div>
 </footer>
 

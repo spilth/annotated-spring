@@ -5,7 +5,7 @@ html {
 
 body {
     /* Margin bottom by footer height */
-    margin-bottom: 60px;
+    margin-bottom: 80px;
 }
 
 .footer {
@@ -18,8 +18,9 @@ body {
 }
 
 body > .container {
-    padding: 60px 15px 0;
+    padding: 40px 15px 0;
 }
+
 .container .text-muted {
     margin: 20px 0;
 }
@@ -29,7 +30,4 @@ body > .container {
     padding-left: 15px;
 }
 
-code {
-    font-size: 80%;
-}
 
