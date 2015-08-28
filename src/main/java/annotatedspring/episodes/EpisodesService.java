@@ -25,6 +25,6 @@ public class EpisodesService {
     }
 
     public Iterable<Episode> published() {
-        return episodesRepository.findByPublished(true);
+        return episodesRepository.findByPublishedOrderByIdDesc(true);
     }
 }

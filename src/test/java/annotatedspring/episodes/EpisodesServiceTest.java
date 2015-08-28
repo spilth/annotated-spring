@@ -79,12 +79,12 @@ public class EpisodesServiceTest {
     }
 
     @Test
-    public void published_returnsPublishedEpisodes() throws Exception {
-        when(episodesRepository.findByPublished(true)).thenReturn(persistedEpisodes);
+    public void published_returnsPublishedEpisodesByIdDesc() throws Exception {
+        when(episodesRepository.findByPublishedOrderByIdDesc(true)).thenReturn(persistedEpisodes);
 
         Iterable<Episode> episodes = episodeService.published();
 
-        verify(episodesRepository, times(1)).findByPublished(true);
+        verify(episodesRepository, times(1)).findByPublishedOrderByIdDesc(true);
         assertThat(episodes, is(equalTo(persistedEpisodes)));
 
     }

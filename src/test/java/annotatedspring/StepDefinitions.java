@@ -107,7 +107,7 @@ public class StepDefinitions  extends FluentTest {
 
     @When("^I edit that episode$")
     public void I_edit_that_episode() throws Throwable {
-        findFirst("a", withText("Episode Title")).click();
+        click("#episode1");
         findFirst("a", withText("Edit")).click();
 
         assertThat(find("#title").getValue(), containsString("Episode Title"));
@@ -124,7 +124,7 @@ public class StepDefinitions  extends FluentTest {
 
     @Then("^I should see my changes reflect on the episode page$")
     public void I_should_see_my_changes_reflect_on_the_episode_page() throws Throwable {
-        assertThat(findFirst("tbody tr").getText(), containsString("Edited Episode Title"));
+        assertThat(findFirst("tbody").getText(), containsString("Edited Episode Title"));
     }
 
     @And("^I should see my changes reflected when I view its details$")
