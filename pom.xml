@@ -109,7 +109,6 @@
     </dependencies>
 
     <build>
-        <defaultGoal>clean test</defaultGoal>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
