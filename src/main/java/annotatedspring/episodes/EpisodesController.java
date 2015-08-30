@@ -49,7 +49,7 @@ public class EpisodesController {
         return "episodes/edit";
     }
 
-    @RequestMapping(value = "/episodes/{episodeId}", method = RequestMethod.POST)
+    @RequestMapping(value = "/episodes/{episodeId}", method = RequestMethod.PUT)
     public String episodeUpdate(@Valid Episode episode, @PathVariable("episodeId") Integer episodeId) {
         episode.setId(episodeId);
 

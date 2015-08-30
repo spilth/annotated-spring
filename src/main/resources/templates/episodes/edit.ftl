@@ -2,6 +2,7 @@
     <h1>Edit Episode ${episode.id}: ${episode.title}</h1>
 
     <form action="/episodes/${episodeId}" method="post" class="form-horizontal">
+        <input type="hidden" name="_method" value="PUT" />
         <#include "_form.ftl">
 
         <div class="form-group">
