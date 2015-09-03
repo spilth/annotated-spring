@@ -13,7 +13,7 @@
 
     <title>Annotated Spring</title>
 
-    <link rel='stylesheet' href='/webjars/bootstrap/3.3.5/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='/webjars/bootswatch-journal/3.3.1+2/css/bootstrap.min.css'>
     <link rel='stylesheet' href='/stylesheets/annotated-spring.css'>
 </head>
 
