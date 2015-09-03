@@ -49,7 +49,7 @@
                 &copy; 2015 Annotated Spring
             </div>
             <div class="col-md-4 text-right">
-                Hosted by <a href="https://run.pivotal.io">Pivotal Web Services</a>
+                Hosted on <a href="https://run.pivotal.io">Pivotal Web Services</a>
             </div>
         </div>
     </div>
