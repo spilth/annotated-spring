@@ -1,7 +1,7 @@
 <@application>
     <h1>Episodes</h1>
 
-    <table class="table table-striped">
+    <table class="table">
         <thead>
             <tr>
                 <th>#</th>
