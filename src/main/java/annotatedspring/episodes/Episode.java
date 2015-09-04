@@ -1,11 +1,13 @@
 package annotatedspring.episodes;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.pegdown.PegDownProcessor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Episode {
@@ -13,6 +15,7 @@ public class Episode {
     @GeneratedValue
     private Integer id;
 
+    @NotBlank
     private String title;
 
     private String summary;

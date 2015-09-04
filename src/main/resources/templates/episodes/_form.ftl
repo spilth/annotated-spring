@@ -2,6 +2,7 @@
     <label for="title" class="col-sm-2 control-label">Title</label>
     <div class="col-sm-10">
         <@spring.formInput "episode.title", "class='form-control'" />
+        <@spring.showErrors "<br/>" />
     </div>
 </div>
 <div class="form-group">

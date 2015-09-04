@@ -15,14 +15,13 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.not;
-import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.CoreMatchers.*;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
 
@@ -66,16 +65,18 @@ public class EpisodesControllerTest {
 
     @Test
     public void createEpisode_redirectsToEpisodeIndex() throws Exception {
-        mockMvc.perform(post("/episodes"))
-                .andExpect(redirectedUrl("/"));
+        Episode persistedEpisode = new Episode();
+        persistedEpisode.setId(42);
+        when(episodesService.create(any(Episode.class))).thenReturn(persistedEpisode);
+        mockMvc.perform(post("/episodes").param("title", "episode title"))
+                .andExpect(redirectedUrl("/episodes/42"));
+
+        verify(episodesService, times(1)).create(any(Episode.class));
     }
 
     @Test
-    public void createEpisode_validEpisode_createsEpisode() throws Exception {
-        mockMvc.perform(post("/episodes").param("title", "episode title"))
-            .andExpect(redirectedUrl("/"));
+    public void createEpisode_invalidEpisode_rendersEditForm() throws Exception {
 
-        verify(episodesService, times(1)).create(any(Episode.class));
     }
 
     @Test
@@ -105,8 +106,15 @@ public class EpisodesControllerTest {
     @Test
     public void updateEpisode_validEpisode_updatesEpisode() throws Exception {
         mockMvc.perform(put("/episodes/1").param("title", "episode title"))
-                .andExpect(redirectedUrl("/"));
+                .andExpect(redirectedUrl("/episodes/1"));
 
         verify(episodesService, times(1)).update(any(Episode.class));
+    }
+
+    @Test
+    public void updatedEpisode_invalidEpisode_rendersEditForm() throws Exception {
+        mockMvc.perform(put("/episodes/1").param("duration", "42")).andDo(print())
+                .andExpect(view().name("episodes/edit"))
+                .andExpect(model().attribute("episode", notNullValue()));
     }
 }

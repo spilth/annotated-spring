@@ -7,6 +7,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fluentlenium.adapter.FluentTest;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -48,6 +49,7 @@ public class StepDefinitions  extends FluentTest {
         if (driver == null) {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             driver = new PhantomJSDriver(capabilities);
+            driver.manage().window().setSize(new Dimension(1920, 1920));
         }
 
         return driver;
@@ -91,6 +93,7 @@ public class StepDefinitions  extends FluentTest {
 
     @Then("^I should see it on the episodes page$")
     public void I_should_see_it_on_the_episodes_page() throws Throwable {
+        click("#episodes");
         assertThat(findFirst("tbody tr").getText(), containsString("Episode Title"));
     }
 
@@ -107,7 +110,6 @@ public class StepDefinitions  extends FluentTest {
 
     @When("^I edit that episode$")
     public void I_edit_that_episode() throws Throwable {
-        click("#episode1");
         findFirst("a", withText("Edit")).click();
 
         assertThat(find("#title").getValue(), containsString("Episode Title"));
@@ -124,12 +126,15 @@ public class StepDefinitions  extends FluentTest {
 
     @Then("^I should see my changes reflect on the episode page$")
     public void I_should_see_my_changes_reflect_on_the_episode_page() throws Throwable {
+        click("#episodes");
+
         assertThat(findFirst("tbody").getText(), containsString("Edited Episode Title"));
     }
 
     @And("^I should see my changes reflected when I view its details$")
     public void I_should_see_my_changes_reflected_when_I_view_its_details() throws Throwable {
-        click("#episode1");
+        click("#episode3");
+
         assertThat(findFirst("h1").getText(), containsString("Edited Episode Title"));
     }
 
@@ -150,6 +155,7 @@ public class StepDefinitions  extends FluentTest {
 
     @Then("^I should not see it on the episodes page$")
     public void I_should_not_see_it_on_the_episodes_page() throws Throwable {
+        click("#episodes");
         assertThat(findFirst("tbody").getText(), not(containsString("Unpublished Episode Title")));
     }
 }

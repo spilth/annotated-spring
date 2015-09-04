@@ -3,6 +3,7 @@ package annotatedspring.episodes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,10 +30,13 @@ public class EpisodesController {
     }
 
     @RequestMapping(value = "/episodes", method = RequestMethod.POST)
-    public String episodeCreate(@Valid Episode episode) {
-        episodesService.create(episode);
-
-        return "redirect:/";
+    public String episodeCreate(@Valid Episode episode, BindingResult result) {
+        if (result.hasErrors()) {
+            return "episodes/new";
+        } else {
+            episode = episodesService.create(episode);
+            return "redirect:/episodes/" + episode.getId();
+        }
     }
 
     @RequestMapping(value = "/episodes/{episodeId}", method = RequestMethod.GET)
@@ -50,12 +54,15 @@ public class EpisodesController {
     }
 
     @RequestMapping(value = "/episodes/{episodeId}", method = RequestMethod.PUT)
-    public String episodeUpdate(@Valid Episode episode, @PathVariable("episodeId") Integer episodeId) {
+    public String episodeUpdate(@PathVariable("episodeId") Integer episodeId, @Valid Episode episode, BindingResult result, Model model) {
         episode.setId(episodeId);
 
-        episodesService.update(episode);
-
-        return "redirect:/";
+        if (result.hasErrors()) {
+            model.addAttribute("episode", episode);
+            return "episodes/edit";
+        } else {
+            episodesService.update(episode);
+            return "redirect:/episodes/" + episode.getId();
+        }
     }
-
 }
