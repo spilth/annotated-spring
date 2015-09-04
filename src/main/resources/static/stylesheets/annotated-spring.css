@@ -30,4 +30,6 @@ body > .container {
     padding-left: 15px;
 }
 
-
+.tab-pane {
+    padding: 15px;
+}
