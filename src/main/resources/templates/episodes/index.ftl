@@ -23,5 +23,5 @@
 
     </table>
 
-    <p><a href="/episodes/new" id="create-episode" class="btn btn-default">Create Episode</a></p>
+    <p><a href="/admin/episodes/new" id="create-episode" class="btn btn-default">Create Episode</a></p>
 </@application>

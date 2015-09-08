@@ -26,7 +26,7 @@
 
                 <p>${episode.notesHtml}</p>
 
-                <p><a href="/episodes/${episode.id}/edit" class="btn btn-default">Edit</a></p>
+                <p><a href="/admin/episodes/${episode.id}/edit" class="btn btn-default">Edit</a></p>
             </div>
 
             <div role="tabpanel" class="tab-pane" id="comments">

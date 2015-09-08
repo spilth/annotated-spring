@@ -1,7 +1,7 @@
 <@application>
     <h1>New Episode</h1>
 
-    <form action="/episodes" method="post" class="form-horizontal">
+    <form action="/admin/episodes" method="post" class="form-horizontal">
         <#include "_form.ftl">
 
         <div class="form-group">
