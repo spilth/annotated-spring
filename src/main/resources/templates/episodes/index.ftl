@@ -1,4 +1,4 @@
-<@application>
+<@application title="Episodes">
     <h1>Episodes</h1>
 
     <table class="table">

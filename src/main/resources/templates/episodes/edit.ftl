@@ -1,4 +1,4 @@
-<@application>
+<@application title="Edit Episode ${episode.id}">
     <h1>Edit Episode ${episode.id}: ${episode.title}</h1>
 
     <form action="/admin/episodes/${episodeId}" method="post" class="form-horizontal">

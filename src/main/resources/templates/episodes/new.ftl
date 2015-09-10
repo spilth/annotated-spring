@@ -1,4 +1,4 @@
-<@application>
+<@application title="New Episode">
     <h1>New Episode</h1>
 
     <form action="/admin/episodes" method="post" class="form-horizontal">

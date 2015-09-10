@@ -1,4 +1,4 @@
-<@application>
+<@application title="About">
 <h1>About Annotated Spring</h1>
 
 <p>Annotated Spring is a series of screencasts produced by <a href="http://spilth.org/">Brian Kelly</a>.</p>

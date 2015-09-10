@@ -1,4 +1,4 @@
-<#macro application>
+<#macro application title="Annotated Spring" description="Spring Screencasts">
 <!doctype html>
 <html lang="en">
     <head>
@@ -7,10 +7,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-        <meta name="description" content="Spring Screencasts">
+        <meta name="description" content="${description}">
         <meta name="author" content="Brian Kelly">
 
-        <title>Annotated Spring</title>
+        <title>${title} - AnnotatedSpring.com</title>
 
         <link rel='stylesheet' href='/webjars/bootswatch-journal/3.3.1+2/css/bootstrap.min.css'>
         <link rel='stylesheet' href='/stylesheets/annotated-spring.css'>
