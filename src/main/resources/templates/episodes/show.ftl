@@ -13,7 +13,7 @@
                 <a href="#notes" aria-controls="notes" role="tab" data-toggle="tab">Notes</a>
             </li>
             <li role="presentation">
-                <a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">Comments</a>
+                <a href="#comments" aria-controls="comments" role="tab" data-toggle="tab" class="disqus-comment-count" data-disqus-url="http://www.annotatedspring.com${springMacroRequestContext.requestUri}">Comments</a>
             </li>
         </ul>
 
