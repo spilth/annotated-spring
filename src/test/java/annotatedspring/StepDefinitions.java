@@ -84,6 +84,7 @@ public class StepDefinitions  extends FluentTest {
         fill("#summary").with("Episode Summary");
         fill("#notes").with("Episode Notes");
         fill("#youtubeId").with("YouTube ID");
+        fill("#thumbnailUrl").with("http://placekitten.com/200/300");
         fill("#duration").with("42");
         find("#published").click();
         fill("#sourcecodeUrl").with("https://github.com/AnnotatedSpring/episode-001");
@@ -94,7 +95,7 @@ public class StepDefinitions  extends FluentTest {
     @Then("^I should see it on the episodes page$")
     public void I_should_see_it_on_the_episodes_page() throws Throwable {
         click("#episodes");
-        assertThat(findFirst("tbody tr").getText(), containsString("Episode Title"));
+        assertThat(findFirst("div.row").getText(), containsString("Episode Title"));
     }
 
     @And("^I should be able to view its details$")
@@ -128,7 +129,7 @@ public class StepDefinitions  extends FluentTest {
     public void I_should_see_my_changes_reflect_on_the_episode_page() throws Throwable {
         click("#episodes");
 
-        assertThat(findFirst("tbody").getText(), containsString("Edited Episode Title"));
+        assertThat(findFirst("div.row").getText(), containsString("Edited Episode Title"));
     }
 
     @And("^I should see my changes reflected when I view its details$")
@@ -156,6 +157,6 @@ public class StepDefinitions  extends FluentTest {
     @Then("^I should not see it on the episodes page$")
     public void I_should_not_see_it_on_the_episodes_page() throws Throwable {
         click("#episodes");
-        assertThat(findFirst("tbody").getText(), not(containsString("Unpublished Episode Title")));
+        assertThat(findFirst("div.row").getText(), not(containsString("Unpublished Episode Title")));
     }
 }

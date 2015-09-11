@@ -4,7 +4,6 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.pegdown.PegDownProcessor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @Entity
 public class Episode {
@@ -25,6 +24,8 @@ public class Episode {
     private Integer duration;
 
     private String sourcecodeUrl;
+
+    private String thumbnailUrl;
 
     private boolean published;
 
@@ -96,4 +97,11 @@ public class Episode {
         this.published = published;
     }
 
+    public String getThumbnailUrl() {
+        return thumbnailUrl;
+    }
+
+    public void setThumbnailUrl(String thumbnailUrl) {
+        this.thumbnailUrl = thumbnailUrl;
+    }
 }
