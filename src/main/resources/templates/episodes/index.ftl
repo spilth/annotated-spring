@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-5">
                 <#if episode.thumbnailUrl?? >
-                    <img src="${episode.thumbnailUrl}" class="img-thumbnail img-responsive" />
+                    <a href="/episodes/${episode.id}"><img src="${episode.thumbnailUrl}" class="img-thumbnail img-responsive" /></a>
                 </#if>
             </div>
             <div class="col-md-7">
@@ -13,7 +13,6 @@
                 <h2><a href="/episodes/${episode.id}" id="episode${episode.id}">${episode.title}</a></h2>
                 <p>${episode.summary}</p>
                 <h6>(${episode.duration} minutes)</h6>
-                <p><a href="/episodes/${episode.id}" class="btn btn-primary">Watch Episode</a></p>
             </div>
         </div>
     <div class="row"></div>
