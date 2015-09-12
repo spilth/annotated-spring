@@ -28,7 +28,7 @@
 <ul>
     <li><a href="https://circleci.com">CircleCI</a> - Hosted Continuous Integration</li>
     <li><a href="http://brew.sh">Homebrew</a> - Package manager for OS X</li>
-    <li><a href="https://jenkins-ci.org">Continuous Integration Server</a></li>
+    <li><a href="https://jenkins-ci.org">Jenkins</a> - Continuous Integration Server</li>
     <li><a href="https://run.pivotal.io">Pivotal Web Services</a> - Cloud Platform from Pivotal</li>
     <li><a href="http://www.webjars.org">WebJars</a> - Client-side libraries packaged as JAR files</li>
 </ul>
@@ -38,7 +38,7 @@
 <ul>
     <li><a href="https://try.github.io/">Code School - Try Git</a> - Code School's free Git introductory course</li>
     <li><a href="https://git-scm.com">Git</a> - Modern distributed version control</li>
-    <li><a href="https://github.com">GitHub</a></li>
+    <li><a href="https://github.com">GitHub</a> - Git repository hosting</li>
 </ul>
 
 </@application>
