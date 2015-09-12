@@ -15,17 +15,24 @@ public class EpisodesAdminController {
     @Autowired
     private EpisodesService episodesService;
 
+    @RequestMapping("/admin")
+    public String adminIndex(Model model) {
+        model.addAttribute("episodes", episodesService.published());
+
+        return "admin/index";
+    }
+
     @RequestMapping(value = "/admin/episodes/new", method = RequestMethod.GET)
     public String episodesNew(Model model) {
         model.addAttribute("episode", new Episode());
 
-        return "episodes/new";
+        return "admin/episodes/new";
     }
 
     @RequestMapping(value = "/admin/episodes", method = RequestMethod.POST)
     public String episodeCreate(@Valid Episode episode, BindingResult result) {
         if (result.hasErrors()) {
-            return "episodes/new";
+            return "admin/episodes/new";
         } else {
             episode = episodesService.create(episode);
             return "redirect:/episodes/" + episode.getId();
@@ -36,7 +43,7 @@ public class EpisodesAdminController {
     public String episodeEdit(@PathVariable("episodeId") Integer episodeId, Model model) {
         model.addAttribute("episode", episodesService.find(episodeId));
 
-        return "episodes/edit";
+        return "admin/episodes/edit";
     }
 
     @RequestMapping(value = "/admin/episodes/{episodeId}", method = RequestMethod.PUT)
@@ -45,7 +52,7 @@ public class EpisodesAdminController {
 
         if (result.hasErrors()) {
             model.addAttribute("episode", episode);
-            return "episodes/edit";
+            return "admin/episodes/edit";
         } else {
             episodesService.update(episode);
             return "redirect:/episodes/" + episode.getId();

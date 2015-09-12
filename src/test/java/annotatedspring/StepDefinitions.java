@@ -78,6 +78,7 @@ public class StepDefinitions  extends FluentTest {
     @When("^I create a published episode$")
     public void I_create_a_published_episode() throws Throwable {
         goTo(baseUrl);
+        click("#admin");
         click("#create-episode");
 
         fill("#title").with("Episode Title");
@@ -111,6 +112,7 @@ public class StepDefinitions  extends FluentTest {
 
     @When("^I edit that episode$")
     public void I_edit_that_episode() throws Throwable {
+        click("#admin");
         findFirst("a", withText("Edit")).click();
 
         assertThat(find("#title").getValue(), containsString("Episode Title"));
@@ -142,6 +144,7 @@ public class StepDefinitions  extends FluentTest {
     @When("^I create an unpublished episode$")
     public void I_create_an_unpublished_episode() throws Throwable {
         goTo(baseUrl);
+        click("#admin");
         click("#create-episode");
 
         fill("#title").with("Unpublished Episode Title");

@@ -17,6 +17,4 @@
         </div>
     <div class="row"></div>
     </#list>
-
-    <p><a href="/admin/episodes/new" id="create-episode" class="btn btn-default">Create Episode</a></p>
 </@application>

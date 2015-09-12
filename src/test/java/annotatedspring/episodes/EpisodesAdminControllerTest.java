@@ -42,7 +42,7 @@ public class EpisodesAdminControllerTest {
     public void newEpisode_rendersNewForm() throws Exception {
         mockMvc.perform(get("/admin/episodes/new"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("episodes/new"))
+                .andExpect(view().name("admin/episodes/new"))
                 .andExpect(model().attribute(("episode"), is(not(nullValue()))));
     }
 
@@ -65,7 +65,7 @@ public class EpisodesAdminControllerTest {
 
         mockMvc.perform(get("/admin/episodes/1/edit"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("episodes/edit"))
+                .andExpect(view().name("admin/episodes/edit"))
                 .andExpect(model().attribute("episode", episode));
     }
 
@@ -80,7 +80,7 @@ public class EpisodesAdminControllerTest {
     @Test
     public void updatedEpisode_invalidEpisode_rendersEditForm() throws Exception {
         mockMvc.perform(put("/admin/episodes/1").param("duration", "42")).andDo(print())
-                .andExpect(view().name("episodes/edit"))
+                .andExpect(view().name("admin/episodes/edit"))
                 .andExpect(model().attribute("episode", notNullValue()));
     }
 }

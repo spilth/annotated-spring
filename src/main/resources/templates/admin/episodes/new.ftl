@@ -6,7 +6,7 @@
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <input type="submit" id="create" value="Create" class="btn btn-default" />
+                <input type="submit" id="create" value="Create" class="btn btn-primary" />
             </div>
         </div>
     </form>
