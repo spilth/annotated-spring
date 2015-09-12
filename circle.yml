@@ -12,14 +12,12 @@ test:
   override:
     - mvn -P test
 
-  post:
-    - cf api https://api.run.pivotal.io
-    - cf auth $PWS_USER $PWS_PASSWORD
-    - cf target -o $PWS_ORG -s $PWS_SPACE
-    - cf a
-
 deployment:
   production:
     branch: master
     commands:
+      - cf api https://api.run.pivotal.io
+      - cf auth $PWS_USER $PWS_PASSWORD
+      - cf target -o $PWS_ORG -s $PWS_SPACE
+      - cf a
       - cf push $PWS_APPNAME -p target/annotated-spring-0.0.1-SNAPSHOT.jar
