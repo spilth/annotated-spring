@@ -12,6 +12,12 @@ Web site for Spring Screencasts
 On a Mac you can install Maven with [Homebrew](http://brew.sh):
 
     $ brew install maven
+    
+### Maven & JAVA_HOME
+
+If Maven complains about `JAVA_HOME` not being set, you can set it with the following:
+
+    $ export JAVA_HOME=$(/usr/libexec/java_home)
 
 ## Tests
 
@@ -26,3 +32,5 @@ Or you can simply just run `mvn`.
 To run a local development server, run Maven with the `development` profile.
 
     $ mvn -P development
+    
+Then go to <http://localhost:8080> to view the site.
