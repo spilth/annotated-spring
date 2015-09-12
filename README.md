@@ -4,6 +4,15 @@
 
 Web site for Spring Screencasts
 
+## Requirements
+
+- [Java 8 SDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+- [Maven 3.X](http://maven.apache.org)
+
+On a Mac you can install Maven with [Homebrew](http://brew.sh):
+
+    $ brew install maven
+
 ## Tests
 
 To run the test suite, run Maven with the `test` profile:
