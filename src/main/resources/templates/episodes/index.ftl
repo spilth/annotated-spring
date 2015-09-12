@@ -2,7 +2,7 @@
   <div class="row index-wrapper">
     <#list episodes as episode>
       <div class="col-sm-6 col-md-4 video-tile-wrapper">
-        <a class="video-tile-anchor" href="/episodes/${episode.id}">
+        <a class="video-tile-anchor" href="/episodes/${episode.id}" id="episode${episode.id}">
           <div class="thumbnail">
             <div class="thumb-img-wrapper">
               <div class="thumb-img-overlay-wrapper">
