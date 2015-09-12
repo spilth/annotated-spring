@@ -12,10 +12,10 @@
 
         <title>${title} - AnnotatedSpring.com</title>
 
-        <link rel='stylesheet' href='/webjars/bootswatch-journal/3.3.1+2/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='/webjars/bootswatch-yeti/3.3.1+2/css/bootstrap.min.css'>
         <link rel='stylesheet' href='/stylesheets/annotated-spring.css'>
         <script src="/webjars/jquery/2.1.4/jquery.min.js"></script>
-        <script src="/webjars/bootswatch-journal/3.3.1+2/js/bootstrap.min.js"></script>
+        <script src="/webjars/bootswatch-yeti/3.3.1+2/js/bootstrap.min.js"></script>
     </head>
 
     <body>

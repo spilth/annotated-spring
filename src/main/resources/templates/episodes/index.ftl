@@ -1,20 +1,31 @@
 <@application title="Episodes">
-    <h1>Episodes</h1>
-
+  <div class="row index-wrapper">
     <#list episodes as episode>
-        <div class="row">
-            <div class="col-md-5">
-                <#if episode.thumbnailUrl?? >
-                    <a href="/episodes/${episode.id}"><img src="${episode.thumbnailUrl}" class="img-thumbnail img-responsive" /></a>
-                </#if>
+      <div class="col-sm-6 col-md-4 video-tile-wrapper">
+        <a class="video-tile-anchor" href="/episodes/${episode.id}" id="episode${episode.id}">
+          <div class="thumbnail">
+            <div class="thumb-img-wrapper">
+              <div class="thumb-img-overlay-wrapper">
+                <div class="thumb-img-overlay"></div>
+                <div class="play-button-wrapper">
+                  <span class="play-button glyphicon glyphicon-play-circle" aria-hidden="true">
+                </div>
+              </div>
+              <#if episode.thumbnailUrl?? >
+                  <img src="${episode.thumbnailUrl}" class="img-thumbnail img-responsive" />
+              </#if>
             </div>
-            <div class="col-md-7">
-                <h3>Episode #${episode.id}</h3>
-                <h2><a href="/episodes/${episode.id}" id="episode${episode.id}">${episode.title}</a></h2>
-                <p>${episode.summary}</p>
-                <h6>(${episode.duration} minutes)</h6>
+            <div class="caption">
+              <h2 class="episode-title">${episode.title}</h2>
+              <p class="epsiode-summary">${episode.summary}</p>
+              <div class="episode-meta row">
+                <h3 class="episode-number col-sm-6 col-xs-6">Episode #${episode.id}</h3>
+                <h6 class="episode-duration col-sm-6 col-xs-6"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>${episode.duration} m</h6>
+              </div>
             </div>
-        </div>
-    <div class="row"></div>
+          </div>
+        </a>
+      </div>
     </#list>
+  </div><!-- row -->
 </@application>
