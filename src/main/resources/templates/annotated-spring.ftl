@@ -31,7 +31,7 @@
                         <li class="<#if active == "about">active</#if>"><a href="/about/">About</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="<#if active == "admin">active</#if>"><a href="/admin/" id="admin">Admin</a></li>
+                        <li><a href="http://goo.gl/forms/wbcf1mJv5S" target="_blank">Request Episode</a></li>
                     </ul>
                 </div>
             </div>
