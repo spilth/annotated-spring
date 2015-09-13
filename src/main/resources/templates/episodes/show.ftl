@@ -16,6 +16,9 @@
 
     <div>
         <div class="nav-tab-wrapper">
+          <#if episode.sourcecodeUrl?? >
+            <a href="${episode.sourcecodeUrl}" class="btn btn-primary btn-sm view-source-code">Episode Source Code</a>
+          </#if>
           <ul class="nav nav-tabs" role="tablist">
               <li role="presentation" class="active">
                   <a href="#notes" aria-controls="notes" role="tab" data-toggle="tab">Transcript</a>
@@ -24,9 +27,6 @@
                   <a href="#comments" aria-controls="comments" role="tab" data-toggle="tab" class="disqus-comment-count" data-disqus-url="http://www.annotatedspring.com${springMacroRequestContext.requestUri}">Comments</a>
               </li>
           </ul>
-          <#if episode.sourcecodeUrl?? >
-            <a href="${episode.sourcecodeUrl}" class="btn btn-primary btn-sm view-source-code">Episode Source Code</a>
-          </#if>
         </div>
 
         <div class="tab-content">

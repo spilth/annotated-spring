@@ -62,10 +62,6 @@ ul li {
 
 /*----- #Episode index -----*/
 
-.index-wrapper {
-  // padding-top: 2em;
-}
-
 /*--- ##Video thumb wrappers ---*/
 
 .bounce:hover {
@@ -139,7 +135,6 @@ ul li {
 }
 
 .thumb-img-overlay-wrapper {
-  /*background-color: black;*/
   position: absolute;
   width: 100%;
   height: 100%;
@@ -147,7 +142,7 @@ ul li {
 }
 
 .thumb-img-overlay {
-  background-color: black;
+  background-color: #001319;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -279,4 +274,38 @@ ul li {
     text-align: center;
     padding: 0 0 0.5em 0;
   }
+}
+
+@media only screen and (max-width : 480px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  .full-page, .tab-pane {
+    padding: 1em;
+  }
+
+  /* Video show page */
+  .iframe-wrapper {
+    margin-bottom: 1em;
+    iframe {
+      height: 200px;
+    }
+  }
+
+  .nav.nav-tabs a {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  .view-source-code {
+    position: relative;
+    margin-bottom: 1em;
+    padding: 4px 6px; /* .btn-xs padding */
+  }
+
 }
