@@ -46,13 +46,13 @@
         <footer class="footer">
             <div class="container">
                 <div class="row text-muted">
-                    <div class="col-md-4 text-left">
-                        <a href="https://github.com/AnnotatedSpring/annotated-spring">Website Source Code</a>&nbsp;&nbsp;
+                    <div class="col-md-4 col-sm-4 footer-left">
+                        <a href="https://github.com/AnnotatedSpring/annotated-spring">Website Source Code</a>
                     </div>
-                    <div class="col-md-4 text-center">
+                    <div class="col-md-4 col-sm-4 footer-center">
                         &copy; 2015 Annotated Spring
                     </div>
-                    <div class="col-md-4 text-right">
+                    <div class="col-md-4 col-sm-4 footer-right">
                         Hosted on <a href="https://run.pivotal.io">Pivotal Web Services</a>
                     </div>
                 </div>

@@ -9,6 +9,14 @@ body {
   background-color: #E1E8EA;
 }
 
+h1 {
+  margin-top: 0;
+}
+
+h2 {
+  margin-top: 1em;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -17,8 +25,16 @@ body {
   height: 60px;
 }
 
+.footer-center {
+  text-align: center;
+}
+
+.footer-right {
+  text-align: right;
+}
+
 body > .container {
-  padding: 40px 15px 0;
+  padding: 70px 15px 0;
 }
 
 .container .text-muted {
@@ -30,18 +46,30 @@ body > .container {
   padding-left: 15px;
 }
 
-.tab-pane {
-  padding: 15px;
-}
-
 .navbar-default .navbar-brand, .navbar-default .navbar-nav>li>a {
   color: #E1E8EA;
+}
+
+.full-page {
+  background-color: #f5f5f5;
+  padding: 2em;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+ul {
+  li {
+    color: #777;
+    line-height: 2em;  
+  }
+  li > span {
+    color: #222;
+  }
 }
 
 /*----- #Episode index -----*/
 
 .index-wrapper {
-  padding-top: 2em;
+  // padding-top: 2em;
 }
 
 /*--- ##Video thumb wrappers ---*/
@@ -92,6 +120,7 @@ body > .container {
     }
     .play-button {
       color: #fff;
+      opacity: 0.9;
     }
   }
 
@@ -139,12 +168,13 @@ body > .container {
 }
 
 .play-button {
-  font-size: 6em;
+  font-size: 5em;
   display: table-cell;
   text-align: center;
   vertical-align: middle;
   z-index: 2;
   color: #E1E8EA;
+  opacity: 0.7;
 }
 
 /*--- ##Video thumb content ---*/
@@ -181,6 +211,56 @@ body > .container {
   margin: 0;
 }
 
+/*----- #Video show page-----*/
+
+.episode-header {
+  margin-bottom: 2em;
+
+  .episode-meta {
+    margin-bottom: 1rem;
+  }
+}
+
+.iframe-wrapper {
+  width: 100%;
+  margin-bottom: 2em;
+
+  iframe {
+    width: 100%;
+    height: 480px;
+  }
+}
+
+.nav-tab-wrapper {
+  position: relative;
+
+  .glyphicon {
+    padding-right: 0.5em;
+    font-size: 13px;
+  }
+}
+
+.view-source-code {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.tab-pane {
+  padding: 2em;
+
+  &.active {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+  }
+}
+
+.nav.nav-tabs a {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
 /*----- [Media Queries] -----*/
 
 @media only screen and (max-width : 768px) {
@@ -192,5 +272,16 @@ body > .container {
   }
   .video-tile-wrapper .img-thumbnail {
     width: 100%;
+  }
+
+  .iframe-wrapper {
+    iframe {
+      height: 300px;
+    }
+  }
+
+  .footer-left, .footer-center, .footer-right {
+    text-align: center;
+    padding: 0 0 0.5em 0;
   }
 }
