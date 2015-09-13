@@ -16,10 +16,10 @@
               </#if>
             </div>
             <div class="caption">
-              <h2 class="episode-title">${episode.title}</h2>
+              <h3 class="episode-title">${episode.title}</h3>
               <p class="epsiode-summary">${episode.summary}</p>
               <div class="episode-meta row">
-                <h3 class="episode-number col-sm-6 col-xs-6">Episode #${episode.id}</h3>
+                <h6 class="episode-number col-sm-6 col-xs-6">Episode #${episode.id}</h6>
                 <h6 class="episode-duration col-sm-6 col-xs-6"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>${episode.duration} m</h6>
               </div>
             </div>

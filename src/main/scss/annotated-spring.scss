@@ -194,6 +194,7 @@ ul li {
   color: #008cba;
   margin: 0;
   margin-bottom: 1rem;
+  line-height: 1.3em;
 }
 
 .epsiode-summary {
@@ -278,11 +279,11 @@ ul li {
 
 @media only screen and (max-width : 480px) {
   h1 {
-    font-size: 32px;
+    font-size: 32px; /* h2 font size */
   }
 
   h2 {
-    font-size: 26px;
+    font-size: 26px; /* h3 font size */
   }
 
   .full-page, .tab-pane {
