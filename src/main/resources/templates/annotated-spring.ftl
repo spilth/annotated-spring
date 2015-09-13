@@ -1,4 +1,4 @@
-<#macro application title="Annotated Spring" description="Spring Screencasts">
+<#macro application title="Annotated Spring" description="Spring Screencasts" active="">
 <!doctype html>
 <html lang="en">
     <head>
@@ -26,12 +26,12 @@
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="/" id="episodes">Episodes</a></li>
-                        <li><a href="/resources/"/>Resources</a></li>
-                        <li><a href="/about/">About</a></li>
+                        <li class="<#if active == "episodes">active</#if>"><a href="/" id="episodes">Episodes</a></li>
+                        <li class="<#if active == "resources">active</#if>"><a href="/resources/">Resources</a></li>
+                        <li class="<#if active == "about">active</#if>"><a href="/about/">About</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/admin/" id="admin">Admin</a></li>
+                        <li class="<#if active == "admin">active</#if>"><a href="/admin/" id="admin">Admin</a></li>
                     </ul>
                 </div>
             </div>

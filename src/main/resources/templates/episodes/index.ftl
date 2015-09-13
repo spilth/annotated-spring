@@ -1,4 +1,4 @@
-<@application title="Episodes">
+<@application title="Episodes" active="episodes">
   <div class="row index-wrapper">
     <#list episodes as episode>
       <div class="col-sm-6 col-md-4 video-tile-wrapper">

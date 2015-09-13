@@ -1,4 +1,4 @@
-<@application title="Admin">
+<@application title="Admin" active="admin">
     <h1>Admin</h1>
 
     <p><a href="/admin/episodes/new" id="create-episode" class="btn btn-primary">Create Episode</a></p>

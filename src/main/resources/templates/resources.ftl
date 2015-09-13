@@ -1,9 +1,8 @@
-<@application title="Links">
+<@application title="Links" active="resources">
 <div class="full-page">
     <h1>Resources</h1>
 
     <p>This is a collection of links for tools and sites related to Java and Spring development.</p>
-
 
     <h2>Java</h2>
 
