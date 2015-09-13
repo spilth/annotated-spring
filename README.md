@@ -13,12 +13,6 @@ On a Mac you can install Maven with [Homebrew](http://brew.sh):
 
     $ brew install maven
     
-### Maven & JAVA_HOME
-
-If Maven complains about `JAVA_HOME` not being set, you can set it with the following:
-
-    $ export JAVA_HOME=$(/usr/libexec/java_home)
-
 ## Tests
 
 To run the test suite, run Maven with the `test` profile:
@@ -32,5 +26,30 @@ Or you can simply just run `mvn`.
 To run a local development server, run Maven with the `development` profile.
 
     $ mvn -P development
-    
+
 Then go to <http://localhost:8080> to view the site.
+
+### Auto Reload SCSS Changes
+
+If you want to be able to make SCSS changes and see them without restarting the development server every time, open a second terminal window and use the following Maven goal:
+ 
+    $ mvn sass:watch
+
+## Troubleshooting
+
+### Maven & JAVA_HOME
+
+If Maven complains about `JAVA_HOME` not being set, you can set it with the following:
+
+    $ export JAVA_HOME=$(/usr/libexec/java_home)
+    
+You'll likely want to add that to your `.bash_profile` or similar shell initialization script.
+
+### sass:watch Errors
+
+If using `sass:watch` generates an error with `no such file to load -- hitimes/hitimes`, try clearing out your gems.
+
+If you're using `rvm` you can do the following:
+
+    $ rvm gemset empty default --force
+    
