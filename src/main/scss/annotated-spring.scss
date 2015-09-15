@@ -252,6 +252,25 @@ ul li {
   padding-right: 2em;
 }
 
+/*----- #Admin pages-----*/
+
+.create-episode {
+  float: right;
+}
+
+.admin-table {
+  margin-top: 1em;
+}
+
+.form-control#notes {
+  height: 15em;
+}
+
+.form-control#published {
+  box-shadow: none;
+}
+
+
 /*----- [Media Queries] -----*/
 
 @media only screen and (max-width : 768px) {

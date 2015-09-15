@@ -1,9 +1,15 @@
 <@application title="Admin" active="admin">
-    <h1>Admin</h1>
+<div class="full-page">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Admin</h1>
+    </div>
+    <div class="col-md-6">
+      <a href="/admin/episodes/new" id="create-episode" class="create-episode btn btn-primary">Create Episode</a>
+    </div>
+  </div>
 
-    <p><a href="/admin/episodes/new" id="create-episode" class="btn btn-primary">Create Episode</a></p>
-
-    <table class="table">
+    <table class="admin-table table">
         <thead>
             <tr>
                 <th>Number</th>
@@ -20,9 +26,11 @@
                 <td>${episode.title}</td>
                 <td>${episode.summary}</td>
                 <td>${episode.duration}</td>
-                <td><a href="/admin/episodes/${episode.id}/edit" class="btn btn-primary">Edit</a></td>
+                <td><a href="/admin/episodes/${episode.id}/edit" class="btn btn-default">Edit</a></td>
             </tr>
         </#list>
         </tbody>
     </table>
+</div>
 </@application>
+
