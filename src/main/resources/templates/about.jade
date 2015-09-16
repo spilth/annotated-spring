@@ -1,0 +1,25 @@
+extends ./annotated-spring.jade
+
+block title
+    title About AnnotatedSpring.com
+
+block content
+    .full-page
+        - var active = "about"
+        p - #{active} -
+        h1 About Annotated Spring
+        p
+            | Annotated Spring is a series of screencasts produced by
+            a(href='http://spilth.org/') Brian Kelly
+            | .
+        p
+            | The goal of this site is to get developers up and running quickly using modern Spring and Java to build web applications by the simplest and most common means necessary.
+        p
+            | These screencasts are strongly inspired by
+            a(href='http://railscasts.com') RailsCasts
+            | .
+        h2 Source Code
+        p
+            | This site is written using Spring and the source code is
+            a(href='https://github.com/AnnotatedSpring/annotated-spring') available on GitHub
+
