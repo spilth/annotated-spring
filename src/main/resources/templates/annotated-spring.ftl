@@ -1,4 +1,4 @@
-<#macro application title="Annotated Spring" description="Spring Screencasts" active="">
+<#macro application title="AnnotatedSpring.com" description="Spring Screencasts" active="" image="" url="">
 <!doctype html>
 <html lang="en">
     <head>
@@ -10,7 +10,13 @@
         <meta name="description" content="${description}">
         <meta name="author" content="Brian Kelly">
 
-        <title>${title} - AnnotatedSpring.com</title>
+        <meta property="og:type"        content="website" />
+        <meta property="og:title"       content="${title} - AnnotatedSpring.com" />
+        <meta property="og:description" content="${description}" />
+        <meta property="og:url"         content="${url}" />
+        <meta property="og:image"       content="${image}" />
+
+        <title>${title}</title>
 
         <link rel='stylesheet' href='/webjars/bootswatch-yeti/3.3.1+2/css/bootstrap.min.css'>
         <link rel='stylesheet' href='/stylesheets/annotated-spring.css'>

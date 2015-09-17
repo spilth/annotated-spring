@@ -62,4 +62,16 @@ public class EpisodesControllerTest {
             .andExpect(view().name("episodes/show"))
             .andExpect(model().attribute("episode", episode));
     }
+
+    @Test
+    public void showEpisode_withSeoPath_rendersShow() throws Exception {
+        Episode episode = mock(Episode.class);
+
+        when(episodesService.find(1)).thenReturn(episode);
+
+        mockMvc.perform(get("/episodes/1/episode-title"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("episodes/show"))
+                .andExpect(model().attribute("episode", episode));
+    }
 }

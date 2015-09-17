@@ -19,9 +19,12 @@ public class EpisodesController {
         return "episodes/index";
     }
 
-    @RequestMapping(value = "/episodes/{episodeId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/episodes/{episodeId}/**", method = RequestMethod.GET)
     public String episodeShow(@PathVariable("episodeId") Integer episodeId, Model model) {
-        model.addAttribute("episode", episodesService.find(episodeId));
+        Episode episode = episodesService.find(episodeId);
+
+        model.addAttribute("episode", episode);
+        model.addAttribute("url", "http://www.annotatedspring.com/episodes/" + episode.getId() + "/" + episode.getSlug());
 
         return "episodes/show";
     }

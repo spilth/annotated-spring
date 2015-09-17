@@ -104,4 +104,12 @@ public class Episode {
     public void setThumbnailUrl(String thumbnailUrl) {
         this.thumbnailUrl = thumbnailUrl;
     }
+
+    public String getSlug() {
+        return title.toLowerCase()
+                .replace("&", "and")
+                .replace(",", "")
+                .replace(":", "")
+                .replace(' ', '-');
+    }
 }

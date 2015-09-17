@@ -1,4 +1,4 @@
-<@application title="Links" active="resources">
+<@application title="Resources - AnnotatedSpring.com" active="resources">
 <div class="full-page">
     <h1>Resources</h1>
 

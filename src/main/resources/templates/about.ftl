@@ -1,4 +1,4 @@
-<@application title="About" active="about">
+<@application title="About - AnnotatedSpring.com" active="about">
 	<div class="full-page">
 		<h1>About Annotated Spring</h1>
 
