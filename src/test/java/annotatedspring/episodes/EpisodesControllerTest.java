@@ -74,4 +74,12 @@ public class EpisodesControllerTest {
                 .andExpect(view().name("episodes/show"))
                 .andExpect(model().attribute("episode", episode));
     }
+
+    @Test
+    public void showEpisode_invalidEpisode_throwsEpisodeNotFound() throws Exception {
+        when(episodesService.find(1)).thenReturn(null);
+
+        mockMvc.perform(get("/episodes/1/episode-title"))
+                .andExpect(status().isNotFound());
+    }
 }
