@@ -8,13 +8,15 @@
 <div class="form-group">
     <label for="summary" class="col-sm-2 control-label">Summary</label>
     <div class="col-sm-10">
-    <@spring.formInput "episode.summary", "class='form-control'" />
+       <@spring.formInput "episode.summary", "class='form-control'" />
     </div>
 </div>
 <div class="form-group">
     <label for="notes" class="col-sm-2 control-label">Notes</label>
     <div class="col-sm-10">
+        <#assign htmlEscape = true in spring>
         <@spring.formTextarea "episode.notes",  "class='form-control'" />
+        <#assign htmlEscape = false in spring>
     </div>
 </div>
 <div class="form-group">
