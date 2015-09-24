@@ -135,7 +135,7 @@ public class StepDefinitions  extends FluentTest {
 
     @And("^I should see my changes reflected when I view its details$")
     public void I_should_see_my_changes_reflected_when_I_view_its_details() throws Throwable {
-        click("#episode3");
+        click("#episode1");
 
         assertThat(findFirst("h1").getText(), containsString("Edited Episode Title"));
     }

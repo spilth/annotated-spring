@@ -17,7 +17,7 @@ public class EpisodesAdminController {
 
     @RequestMapping("/admin")
     public String adminIndex(Model model) {
-        model.addAttribute("episodes", episodesService.published());
+        model.addAttribute("episodes", episodesService.all());
 
         return "admin/index";
     }
