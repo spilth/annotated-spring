@@ -23,9 +23,9 @@
         <#list episodes as episode>
             <tr>
                 <td>${episode.id}</td>
-                <td>${episode.title}</td>
+                <td><a href="/episodes/${episode.id}">${episode.title}</a></td>
                 <td>${episode.summary}</td>
-                <td>${episode.duration}</td>
+                <td><#if episode.duration?has_content >${episode.duration}</#if></td>
                 <td><a href="/admin/episodes/${episode.id}/edit" class="btn btn-default">Edit</a></td>
             </tr>
         </#list>
