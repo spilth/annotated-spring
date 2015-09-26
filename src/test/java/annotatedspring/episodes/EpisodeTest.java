@@ -23,4 +23,12 @@ public class EpisodeTest{
 
         assertThat(episode.getSlug(), is(equalTo("web-application-layouts-freemarker-webjars-and-bootstrap")));
     }
+
+    @Test
+    public void trim_episode_title() {
+        Episode episode = new Episode();
+        episode.setTitle(" no leading nor trailing spaces ");
+
+        assertThat(episode.getTitle(), is(equalTo("no leading nor trailing spaces")));
+    }
 }

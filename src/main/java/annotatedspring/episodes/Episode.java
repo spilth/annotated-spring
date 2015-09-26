@@ -50,7 +50,11 @@ public class Episode {
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        if (title == null) {
+            this.title = null;
+        } else {
+            this.title = title.trim();
+        }
     }
 
     public void setNotes(String notes) {
