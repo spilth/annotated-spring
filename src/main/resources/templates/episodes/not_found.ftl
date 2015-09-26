@@ -1,5 +1,6 @@
-<@application title="Episodes - AnnotatedSpring.com" active="episodes">
+<#assign title><@spring.message "page.error.episode.not_found" /></#assign>
+<@application title=title>
   <div class="row index-wrapper">
-    <h1>Episode Not Found!</h1>
+    <h1>${title}</h1>
   </div><!-- row -->
 </@application>

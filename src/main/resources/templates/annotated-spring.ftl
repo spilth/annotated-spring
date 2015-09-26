@@ -16,7 +16,7 @@
         <meta property="og:url"         content="${url}" />
         <meta property="og:image"       content="${image}" />
 
-        <title>${title}</title>
+        <title>${title} - <@spring.message "site.domain" /></title>
 
         <link rel='stylesheet' href='/webjars/bootswatch-yeti/3.3.1+2/css/bootstrap.min.css'>
         <link rel='stylesheet' href='/stylesheets/annotated-spring.css'>
@@ -28,7 +28,7 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="/">Annotated Spring</a>
+                    <a class="navbar-brand" href="/"><@spring.message "site.title" /></a>
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>

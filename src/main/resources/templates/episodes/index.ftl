@@ -1,4 +1,5 @@
-<@application title="Episodes - AnnotatedSpring.com" active="episodes">
+<#assign title><@spring.message "page.homepage.title" /></#assign>
+<@application title=title active="resources">
   <div class="row index-wrapper">
     <#list episodes as episode>
       <div class="col-sm-6 col-md-4 video-tile-wrapper">
@@ -19,7 +20,7 @@
               <h3 class="episode-title">${episode.title}</h3>
               <p class="epsiode-summary">${episode.summary}</p>
               <div class="episode-meta row">
-                <h6 class="episode-number col-sm-6 col-xs-6">Episode #${episode.id}</h6>
+                <h6 class="episode-number col-sm-6 col-xs-6"><@spring.message "page.episode.number" />${episode.id}</h6>
                 <#if episode.duration?has_content>
                   <h6 class="episode-duration col-sm-6 col-xs-6"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>${episode.duration} m</h6>
                 </#if>

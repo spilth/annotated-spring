@@ -1,6 +1,7 @@
-<@application title="Resources - AnnotatedSpring.com" active="resources">
+<#assign title><@spring.message "page.resources.title" /></#assign>
+<@application title=title active="resources">
 <div class="full-page">
-    <h1>Resources</h1>
+    <h1>${title}</h1>
 
     <p>This is a collection of links for tools and sites related to Java and Spring development.</p>
 

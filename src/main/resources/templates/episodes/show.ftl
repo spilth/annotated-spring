@@ -2,7 +2,7 @@
   <div class="full-page">
     <div class="episode-header">
       <div class="episode-meta row">
-        <h3 class="episode-number col-sm-6 col-xs-6">Episode #${episode.id}</h3>
+        <h3 class="episode-number col-sm-6 col-xs-6"><@spring.message "page.episode.number" />${episode.id}</h3>
           <#if episode.duration?has_content>
             <h6 class="episode-duration col-sm-6 col-xs-6"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>${episode.duration} m</h6>
           </#if>
@@ -24,14 +24,14 @@
     <div>
         <div class="nav-tab-wrapper">
           <#if episode.sourcecodeUrl?? >
-            <a href="${episode.sourcecodeUrl}" class="btn btn-primary btn-sm view-source-code">Episode Source Code</a>
+            <a href="${episode.sourcecodeUrl}" class="btn btn-primary btn-sm view-source-code"><@spring.message "page.episode.button.source" /></a>
           </#if>
           <ul class="nav nav-tabs" role="tablist">
               <li role="presentation" class="active">
-                  <a href="#notes" aria-controls="notes" role="tab" data-toggle="tab">Transcript</a>
+                  <a href="#notes" aria-controls="notes" role="tab" data-toggle="tab"><@spring.message "page.episode.tab.transcript" /></a>
               </li>
               <li role="presentation">
-                  <a href="#comments" aria-controls="comments" role="tab" data-toggle="tab" class="disqus-comment-count" data-disqus-url="http://www.annotatedspring.com${springMacroRequestContext.requestUri}">Comments</a>
+                  <a href="#comments" aria-controls="comments" role="tab" data-toggle="tab" class="disqus-comment-count" data-disqus-url="http://www.annotatedspring.com${springMacroRequestContext.requestUri}"><@spring.message "page.episode.tab.comments" /></a>
               </li>
           </ul>
         </div>
