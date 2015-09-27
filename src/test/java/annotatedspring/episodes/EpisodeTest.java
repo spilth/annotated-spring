@@ -1,10 +1,12 @@
 package annotatedspring.episodes;
 
-import org.junit.Test;
-
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.core.Is.is;
+
+import org.junit.Test;
+
 
 public class EpisodeTest{
 
@@ -30,5 +32,27 @@ public class EpisodeTest{
         episode.setTitle(" no leading nor trailing spaces ");
 
         assertThat(episode.getTitle(), is(equalTo("no leading nor trailing spaces")));
+    }
+    
+    @Test
+    public void markdown_table() {
+        Episode episode = new Episode();
+        String notes = "| Name| Value|\r\n"
+                + "| ---- | ----- |\r\n"
+                + "| Hello| World!|\r\n"
+                + "| Another| Row|\r\n";
+        
+        episode.setNotes(notes);
+        
+        assertThat(episode.getNotesHtml(), containsString("<table>"));
+        assertThat(episode.getNotesHtml(), containsString("<th>Name</th>"));
+        assertThat(episode.getNotesHtml(), containsString("<th>Value</th>"));
+        assertThat(episode.getNotesHtml(), containsString("<tbody>"));
+        assertThat(episode.getNotesHtml(), containsString("<tr>"));
+        assertThat(episode.getNotesHtml(), containsString("<td>Hello</td>"));
+        assertThat(episode.getNotesHtml(), containsString("<td>World!</td>"));
+        assertThat(episode.getNotesHtml(), containsString("</tr>"));
+        assertThat(episode.getNotesHtml(), containsString("</table>"));
+        System.out.println(episode.getNotesHtml());
     }
 }

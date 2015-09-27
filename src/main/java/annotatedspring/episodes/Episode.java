@@ -1,6 +1,7 @@
 package annotatedspring.episodes;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.pegdown.Extensions;
 import org.pegdown.PegDownProcessor;
 
 import javax.persistence.*;
@@ -42,7 +43,7 @@ public class Episode {
     }
 
     public String getNotesHtml() {
-        return new PegDownProcessor().markdownToHtml(notes);
+        return new PegDownProcessor(Extensions.TABLES).markdownToHtml(notes);
     }
 
     public void setId(Integer id) {
