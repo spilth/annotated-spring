@@ -27,7 +27,7 @@ public class EpisodeTest{
     }
 
     @Test
-    public void trim_episode_title() {
+    public void setEpisodeTitle_trimsLeadingTrailingWhitespace() {
         Episode episode = new Episode();
         episode.setTitle(" no leading nor trailing spaces ");
 
@@ -35,7 +35,7 @@ public class EpisodeTest{
     }
     
     @Test
-    public void markdown_table() {
+    public void getNotesHtml_enablesMarkdownTables() {
         Episode episode = new Episode();
         String notes = "| Name| Value|\r\n"
                 + "| ---- | ----- |\r\n"
@@ -44,6 +44,6 @@ public class EpisodeTest{
         
         episode.setNotes(notes);
         
-        assertThat(episode.getNotesHtml(), containsString("<table>"));
+        assertThat(episode.getNotesHtml(), containsString("<table class=\"table\">"));
     }
 }

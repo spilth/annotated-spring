@@ -43,7 +43,9 @@ public class Episode {
     }
 
     public String getNotesHtml() {
-        return new PegDownProcessor(Extensions.TABLES).markdownToHtml(notes);
+        String html = new PegDownProcessor(Extensions.TABLES).markdownToHtml(notes);
+        html = html.replaceAll("<table>", "<table class=\"table\">");
+        return html;
     }
 
     public void setId(Integer id) {
