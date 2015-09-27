@@ -45,14 +45,5 @@ public class EpisodeTest{
         episode.setNotes(notes);
         
         assertThat(episode.getNotesHtml(), containsString("<table>"));
-        assertThat(episode.getNotesHtml(), containsString("<th>Name</th>"));
-        assertThat(episode.getNotesHtml(), containsString("<th>Value</th>"));
-        assertThat(episode.getNotesHtml(), containsString("<tbody>"));
-        assertThat(episode.getNotesHtml(), containsString("<tr>"));
-        assertThat(episode.getNotesHtml(), containsString("<td>Hello</td>"));
-        assertThat(episode.getNotesHtml(), containsString("<td>World!</td>"));
-        assertThat(episode.getNotesHtml(), containsString("</tr>"));
-        assertThat(episode.getNotesHtml(), containsString("</table>"));
-        System.out.println(episode.getNotesHtml());
     }
 }
