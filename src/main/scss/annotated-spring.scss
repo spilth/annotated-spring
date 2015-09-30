@@ -95,6 +95,7 @@ ul li {
 }
 
 .video-tile-wrapper {
+  min-height: 530px;
   @extend .bounce;
   img {
     -webkit-filter: grayscale(80%);
