@@ -9,6 +9,7 @@
 
     <ul>
         <li><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Java 8 SDK</a></li>
+        <li><a href="http://docs.oracle.com/javase/8/docs/api/">Java 8 Standard Edition API</a></li>
         <li><a href="http://maven.apache.org">Maven</a> - Java build tool</li>
         <li><a href="http://search.maven.org">Maven Central Repository</a> - centrally hosted Java libraries</li>
         <li><a href="https://gradle.org">Gradle</a> - Java build tool</li>
