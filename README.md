@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/AnnotatedSpring/annotated-spring.png?label=ready&title=Ready)](https://waffle.io/AnnotatedSpring/annotated-spring)
 [![Circle CI](https://circleci.com/gh/AnnotatedSpring/annotated-spring.svg?style=svg)](https://circleci.com/gh/AnnotatedSpring/annotated-spring)
 
 # Annotated Spring
