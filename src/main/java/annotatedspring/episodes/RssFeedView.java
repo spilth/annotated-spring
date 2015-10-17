@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.view.feed.AbstractRssFeedView;
 
@@ -22,9 +23,29 @@ public class RssFeedView extends AbstractRssFeedView {
 
     private EpisodesService episodeService;
 
+    @Value("${site.url}")
+    private String url;
+
+    @Value("${feed.title}")
+    private String title;
+    
+    @Value("${feed.description}")
+    private String description;
+
     @Autowired
     public RssFeedView(EpisodesService episodeService) {
         this.episodeService = episodeService;
+    }
+
+    @Override
+    protected Channel newFeed() {
+        Channel channel = new Channel("rss_2.0");
+        channel.setLink(url);
+        channel.setTitle(title);
+        channel.setDescription(description);
+        channel.setPubDate(new Date()); // using now because we don't know when
+                                        // the last episode was published.
+        return channel;
     }
 
     @Override
@@ -36,7 +57,7 @@ public class RssFeedView extends AbstractRssFeedView {
         System.out.println("-----");
         System.out.println("latest: " + episodeService.latestEpisodes());
         System.out.println("-----");
-        
+
         Item item = new Item();
         item.setLink("/episodes/4");
         item.setTitle("CRUD Web App: Part 1 - Create & Read");
@@ -45,16 +66,6 @@ public class RssFeedView extends AbstractRssFeedView {
         item.setPubDate(new Date());
         items.add(item);
         return items;
-    }
-
-    @Override
-    protected Channel newFeed() {
-        Channel channel = new Channel("rss_2.0");
-        channel.setLink("/feed/");
-        channel.setTitle("Episodes - AnnotatedSpring.com");
-        channel.setDescription("Spring Screencasts");
-        channel.setPubDate(new Date());
-        return channel;
     }
 
     private Description createDescription(String text) {
