@@ -20,11 +20,23 @@ import com.rometools.rome.feed.rss.Item;
 @Component
 public class RssFeedView extends AbstractRssFeedView {
 
+    private EpisodesService episodeService;
+
+    @Autowired
+    public RssFeedView(EpisodesService episodeService) {
+        this.episodeService = episodeService;
+    }
+
     @Override
     protected List<Item> buildFeedItems(Map<String, Object> model, HttpServletRequest request,
             HttpServletResponse response) throws Exception {
         List<Item> items = new ArrayList<>();
 
+        System.out.println("mostRecent: " + episodeService.mostRecent());
+        System.out.println("-----");
+        System.out.println("latest: " + episodeService.latestEpisodes());
+        System.out.println("-----");
+        
         Item item = new Item();
         item.setLink("/episodes/4");
         item.setTitle("CRUD Web App: Part 1 - Create & Read");

@@ -27,4 +27,12 @@ public class EpisodesService {
     public Iterable<Episode> published() {
         return episodesRepository.findByPublishedOrderByIdDesc(true);
     }
+    
+    public Iterable<Episode> latestEpisodes() {
+        return episodesRepository.findFirst10ByPublishedOrderByIdDesc(true);
+    }
+    
+    public Episode mostRecent() {
+        return episodesRepository.findFirstByPublishedOrderByIdDesc(true);
+    }
 }
