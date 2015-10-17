@@ -1,9 +1,9 @@
 package annotatedspring.episodes;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +16,7 @@ import org.springframework.web.servlet.view.feed.AbstractRssFeedView;
 import com.rometools.rome.feed.rss.Channel;
 import com.rometools.rome.feed.rss.Content;
 import com.rometools.rome.feed.rss.Description;
+import com.rometools.rome.feed.rss.Guid;
 import com.rometools.rome.feed.rss.Item;
 
 @Component
@@ -25,13 +26,16 @@ public class RssFeedView extends AbstractRssFeedView {
 
     @Value("${site.url}")
     private String url;
+    
+    @Value("${site.uri.episodes}")
+    private String episodesUri;
 
     @Value("${feed.title}")
     private String title;
-    
+
     @Value("${feed.description}")
     private String description;
-
+    
     @Autowired
     public RssFeedView(EpisodesService episodeService) {
         this.episodeService = episodeService;
@@ -43,29 +47,40 @@ public class RssFeedView extends AbstractRssFeedView {
         channel.setLink(url);
         channel.setTitle(title);
         channel.setDescription(description);
-        channel.setPubDate(new Date()); // using now because we don't know when
-                                        // the last episode was published.
+        // TODO using now because we don't know when the last episode was published.
+        channel.setPubDate(new Date());
         return channel;
     }
 
     @Override
     protected List<Item> buildFeedItems(Map<String, Object> model, HttpServletRequest request,
             HttpServletResponse response) throws Exception {
-        List<Item> items = new ArrayList<>();
 
-        System.out.println("mostRecent: " + episodeService.mostRecent());
-        System.out.println("-----");
-        System.out.println("latest: " + episodeService.latestEpisodes());
-        System.out.println("-----");
+        return episodeService.latestEpisodes()
+                .stream()
+                .map(this::createItem)
+                .collect(Collectors.toList());
+    }
 
+    private Item createItem(Episode episode) {
         Item item = new Item();
-        item.setLink("/episodes/4");
-        item.setTitle("CRUD Web App: Part 1 - Create & Read");
-        item.setDescription(createDescription(
-                "We're going to build a simple note taking web app that lets us create, view, list and edit notes written using the popular Markdown syntax."));
-        item.setPubDate(new Date());
-        items.add(item);
-        return items;
+        item.setLink(getEpisodeUrl(episode));
+        item.setTitle(episode.getTitle());
+        item.setGuid(createGuid(episode));
+        item.setDescription(createDescription(episode.getSummary()));
+//        item.setPubDate(new Date());
+        return item;
+    }
+
+    private Guid createGuid(Episode episode) {
+        Guid guid = new Guid();
+        guid.setPermaLink(true);
+        guid.setValue(getEpisodeUrl(episode));
+        return guid;
+    }
+
+    private String getEpisodeUrl(Episode episode) {
+        return this.url + this.episodesUri + episode.getId();
     }
 
     private Description createDescription(String text) {
