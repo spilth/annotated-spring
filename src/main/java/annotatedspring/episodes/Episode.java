@@ -119,4 +119,9 @@ public class Episode {
                 .replace(":", "")
                 .replace(' ', '-');
     }
+
+    @Override
+    public String toString() {
+        return "Episode [id=" + id + ", title=" + title + ", published=" + published + "]";
+    }
 }

@@ -1,5 +1,7 @@
 package annotatedspring.episodes;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +28,13 @@ public class EpisodesService {
 
     public Iterable<Episode> published() {
         return episodesRepository.findByPublishedOrderByIdDesc(true);
+    }
+    
+    public Collection<Episode> latestEpisodes() {
+        return episodesRepository.findFirst10ByPublishedOrderByIdDesc(true);
+    }
+    
+    public Episode mostRecent() {
+        return episodesRepository.findFirstByPublishedOrderByIdDesc(true);
     }
 }

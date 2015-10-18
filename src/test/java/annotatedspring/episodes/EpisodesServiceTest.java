@@ -1,6 +1,17 @@
 package annotatedspring.episodes;
 
-import annotatedspring.Application;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,16 +22,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.mockito.Mockito.*;
+import annotatedspring.Application;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {Application.class})
+@ContextConfiguration(classes = { Application.class })
 @WebAppConfiguration
 public class EpisodesServiceTest {
     @InjectMocks
@@ -86,6 +91,28 @@ public class EpisodesServiceTest {
 
         verify(episodesRepository, times(1)).findByPublishedOrderByIdDesc(true);
         assertThat(episodes, is(equalTo(persistedEpisodes)));
+
+    }
+
+    @Test
+    public void latestEpisodes_returnsLatest10PublishedEpisodesByIdDesc() throws Exception {
+        when(episodesRepository.findFirst10ByPublishedOrderByIdDesc(true)).thenReturn(persistedEpisodes);
+
+        Collection<Episode> episodes = episodeService.latestEpisodes();
+
+        verify(episodesRepository, times(1)).findFirst10ByPublishedOrderByIdDesc(true);
+        assertThat(episodes, is(equalTo(persistedEpisodes)));
+
+    }
+    
+    @Test
+    public void mostRecent_returnsMostRecentPublishedEpisodesByIdDesc() throws Exception {
+        when(episodesRepository.findFirstByPublishedOrderByIdDesc(true)).thenReturn(persistedEpisode);
+
+        Episode mostRecent = episodeService.mostRecent();
+
+        verify(episodesRepository, times(1)).findFirstByPublishedOrderByIdDesc(true);
+        assertThat(mostRecent, is(equalTo(persistedEpisode)));
 
     }
 }
