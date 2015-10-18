@@ -89,12 +89,9 @@ public class EpisodesRssFeedViewTest {
 
         assertEquals("Invalid content-type", "application/rss+xml", response.getContentType());
         
-        String rss = response.getContentAsString();
-        
-        Matcher matcher = linkPattern.matcher(rss);
+        Matcher matcher = linkPattern.matcher(response.getContentAsString());
         matcher.find();
         assertEquals("first link must be URL", url, matcher.group(1));
-        
         matcher.find();
         assertEquals("second link must be episode uri", getEpisodeUrl(), matcher.group(1));
         
