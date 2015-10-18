@@ -20,24 +20,18 @@ import com.rometools.rome.feed.rss.Guid;
 import com.rometools.rome.feed.rss.Item;
 
 @Component
-public class RssFeedView extends AbstractRssFeedView {
+public class EpisodesRssFeedView extends AbstractRssFeedView {
 
     private EpisodesService episodeService;
 
-    @Value("${site.url}")
     private String url;
-    
-    @Value("${site.uri.episodes}")
     private String episodesUri;
-
-    @Value("${feed.title}")
     private String title;
-
-    @Value("${feed.description}")
     private String description;
-    
+    private Date publishedDate = new Date();
+
     @Autowired
-    public RssFeedView(EpisodesService episodeService) {
+    public EpisodesRssFeedView(EpisodesService episodeService) {
         this.episodeService = episodeService;
     }
 
@@ -48,7 +42,7 @@ public class RssFeedView extends AbstractRssFeedView {
         channel.setTitle(title);
         channel.setDescription(description);
         // TODO using now because we don't know when the last episode was published.
-        channel.setPubDate(new Date());
+        channel.setPubDate(publishedDate);
         return channel;
     }
 
@@ -69,7 +63,7 @@ public class RssFeedView extends AbstractRssFeedView {
         item.setGuid(createGuid(episode));
         item.setDescription(createDescription(episode));
         item.setContent(createContent(episode));
-//        item.setPubDate(new Date());
+        // item.setPubDate(new Date());
         return item;
     }
 
@@ -77,7 +71,8 @@ public class RssFeedView extends AbstractRssFeedView {
         Content content = new Content();
         content.setType("text/html");
         String html = "<p>" + episode.getSummary() + "</p>";
-        html += "<iframe src=\"https://www.youtube.com/embed/" + episode.getYoutubeId() + "?vq=hd720\" frameborder=\"0\" allowfullscreen></iframe>";
+        html += "<iframe src=\"https://www.youtube.com/embed/" + episode.getYoutubeId()
+                + "?vq=hd720\" frameborder=\"0\" allowfullscreen></iframe>";
         content.setValue(html);
         return content;
     }
@@ -98,6 +93,30 @@ public class RssFeedView extends AbstractRssFeedView {
         description.setType(Content.TEXT);
         description.setValue(episode.getSummary());
         return description;
+    }
+
+    @Value("${feed.title}")
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @Value("${feed.description}")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Value("${site.url}")
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    @Value("${site.uri.episodes}")
+    public void setEpisodesUri(String episodesUri) {
+        this.episodesUri = episodesUri;
+    }
+
+    public void setPublishedDate(Date publishedDate) {
+        this.publishedDate = publishedDate;
     }
 
 }

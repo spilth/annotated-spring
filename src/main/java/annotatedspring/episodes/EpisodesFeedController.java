@@ -3,7 +3,6 @@ package annotatedspring.episodes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.view.feed.AbstractRssFeedView;
 
 /**
  * Spring controller to handle RSS feed requests. 
@@ -12,13 +11,13 @@ import org.springframework.web.servlet.view.feed.AbstractRssFeedView;
  *
  */
 @Controller
-public class FeedController {
+public class EpisodesFeedController {
 
     @Autowired
-    private RssFeedView rssView;
+    private EpisodesRssFeedView rssView;
     
     @RequestMapping(value = "/feed")
-    public AbstractRssFeedView getFeed() {
+    public EpisodesRssFeedView getFeed() {
         return rssView;
     }
 
