@@ -67,9 +67,19 @@ public class RssFeedView extends AbstractRssFeedView {
         item.setLink(getEpisodeUrl(episode));
         item.setTitle(episode.getTitle());
         item.setGuid(createGuid(episode));
-        item.setDescription(createDescription(episode.getSummary()));
+        item.setDescription(createDescription(episode));
+        item.setContent(createContent(episode));
 //        item.setPubDate(new Date());
         return item;
+    }
+
+    private Content createContent(Episode episode) {
+        Content content = new Content();
+        content.setType("text/html");
+        String html = "<p>" + episode.getSummary() + "</p>";
+        html += "<iframe src=\"https://www.youtube.com/embed/" + episode.getYoutubeId() + "?vq=hd720\" frameborder=\"0\" allowfullscreen></iframe>";
+        content.setValue(html);
+        return content;
     }
 
     private Guid createGuid(Episode episode) {
@@ -83,10 +93,10 @@ public class RssFeedView extends AbstractRssFeedView {
         return this.url + this.episodesUri + episode.getId();
     }
 
-    private Description createDescription(String text) {
+    private Description createDescription(Episode episode) {
         Description description = new Description();
         description.setType(Content.TEXT);
-        description.setValue(text);
+        description.setValue(episode.getSummary());
         return description;
     }
 
