@@ -184,7 +184,7 @@
         <profile>
             <id>production</id>
             <properties>
-                <spring.active.profiles>production</spring.active.profiles>
+                <spring.profiles.active>production</spring.profiles.active>
             </properties>
             <build>
                 <defaultGoal>clean spring-boot:run</defaultGoal>
