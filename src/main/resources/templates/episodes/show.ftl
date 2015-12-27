@@ -2,12 +2,19 @@
   <div class="full-page">
     <div class="episode-header">
       <div class="episode-meta row">
-        <h3 class="episode-number col-sm-6 col-xs-6"><@spring.message "page.episode.number" />${episode.id}</h3>
+        <h3 class="episode-number col-sm-6 col-xs-6">
+            <@spring.message "page.episode.number" />${episode.id}
+
+            <#if episode.publishDate??>
+                - ${episode.publishDate?date?string.long}
+            </#if>
+        </h3>
           <#if episode.duration?has_content>
             <h6 class="episode-duration col-sm-6 col-xs-6"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>${episode.duration} m</h6>
           </#if>
       </div>
       <h1>${episode.title}</h1>
+
       <p>${episode.summary}</p>
     </div>
     <#if episode.youtubeId?? >

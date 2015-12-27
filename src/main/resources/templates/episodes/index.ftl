@@ -18,11 +18,17 @@
             </div>
             <div class="caption">
               <h3 class="episode-title">${episode.title}</h3>
+
               <p class="epsiode-summary">${episode.summary}</p>
               <div class="episode-meta row">
-                <h6 class="episode-number col-sm-6 col-xs-6"><@spring.message "page.episode.number" />${episode.id}</h6>
+                <h6 class="episode-number col-sm-8 col-xs-8">
+                  <@spring.message "page.episode.number" />${episode.id}
+                  <#if episode.publishDate??>
+                      - ${episode.publishDate?date?string.medium}
+                  </#if>
+                </h6>
                 <#if episode.duration?has_content>
-                  <h6 class="episode-duration col-sm-6 col-xs-6"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>${episode.duration} m</h6>
+                  <h6 class="episode-duration col-sm-4 col-xs-4"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>${episode.duration} m</h6>
                 </#if>
               </div>
             </div>

@@ -44,6 +44,13 @@
     </div>
 </div>
 <div class="form-group">
+    <label for="published" class="col-sm-2 control-label">Publish Date (mm/dd/yyyy)</label>
+    <div class="col-sm-10">
+    <@spring.formInput "episode.publishDate",  "class='form-control'" />
+    <@spring.showErrors "<br/>" />
+    </div>
+</div>
+<div class="form-group">
     <label for="published" class="col-sm-2 control-label">Published</label>
     <div class="col-sm-10">
         <@spring.formCheckbox "episode.published",  "class='form-control'" />
