@@ -3,8 +3,10 @@ package annotatedspring.episodes;
 import org.hibernate.validator.constraints.NotBlank;
 import org.pegdown.Extensions;
 import org.pegdown.PegDownProcessor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Episode {
@@ -27,6 +29,9 @@ public class Episode {
     private String sourcecodeUrl;
 
     private String thumbnailUrl;
+
+    @DateTimeFormat(pattern = "MM/dd/yyyy")
+    private Date publishDate;
 
     private boolean published;
 
@@ -118,5 +123,13 @@ public class Episode {
                 .replace(",", "")
                 .replace(":", "")
                 .replace(' ', '-');
+    }
+
+    public Date getPublishDate() {
+        return publishDate;
+    }
+
+    public void setPublishDate(Date publishDate) {
+        this.publishDate = publishDate;
     }
 }

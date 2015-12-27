@@ -8,6 +8,9 @@
           </#if>
       </div>
       <h1>${episode.title}</h1>
+        <#if episode.publishDate??>
+          <h2>${episode.publishDate?date?string.long}</h2>
+        </#if>
       <p>${episode.summary}</p>
     </div>
     <#if episode.youtubeId?? >

@@ -86,6 +86,7 @@ public class StepDefinitions  extends FluentTest {
         fill("#youtubeId").with("YouTube ID");
         fill("#thumbnailUrl").with("http://placekitten.com/200/300");
         fill("#duration").with("42");
+        fill("#publishDate").with("12/27/2015");
         find("#published").click();
         fill("#sourcecodeUrl").with("https://github.com/AnnotatedSpring/episode-001");
 
@@ -96,6 +97,7 @@ public class StepDefinitions  extends FluentTest {
     public void I_should_see_it_on_the_episodes_page() throws Throwable {
         click("#episodes");
         assertThat(findFirst("div.row").getText(), containsString("Episode Title"));
+        assertThat(findFirst("div.row").getText(), containsString("December 27, 2015"));
     }
 
     @And("^I should be able to view its details$")

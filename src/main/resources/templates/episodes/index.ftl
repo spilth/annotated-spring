@@ -18,6 +18,10 @@
             </div>
             <div class="caption">
               <h3 class="episode-title">${episode.title}</h3>
+              <#if episode.publishDate??>
+                  <h4>${episode.publishDate?date?string.long}</h4>
+              </#if>
+
               <p class="epsiode-summary">${episode.summary}</p>
               <div class="episode-meta row">
                 <h6 class="episode-number col-sm-6 col-xs-6"><@spring.message "page.episode.number" />${episode.id}</h6>
