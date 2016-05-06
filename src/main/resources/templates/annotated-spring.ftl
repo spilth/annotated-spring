@@ -60,7 +60,7 @@
             <div class="container">
                 <div class="row text-muted">
                     <div class="col-md-4 col-sm-4 footer-left">
-                        <a href="https://github.com/AnnotatedSpring/annotated-spring">Website Source Code</a>
+                        <a href="https://github.com/spilth/annotated-spring">Website Source Code</a>
                     </div>
                     <div class="col-md-4 col-sm-4 footer-center">
                         &copy; 2015 Annotated Spring
